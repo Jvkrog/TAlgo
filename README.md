@@ -1,19 +1,19 @@
-Overview
+//Overview
 
-TAlgo is a rule-based trading decision system built to reduce emotional bias (fear, greed, revenge trading) in live markets.
+-->TAlgo is a rule-based trading decision system built to reduce emotional bias (fear, greed, revenge trading) in live markets.
 
-The project focuses on:
+//The project focuses on:
 
-decision consistency
+-->Decision consistency
 
-behavior during market transitions
+-->Behavior during market transitions
 
-learning from failures through iteration
+-->Learning from failures through iteration
 
-explainability using logs
+-->Explainability using logs
 
 
-This repository documents the evolution of the algorithm, version by version, showing what worked, what failed, and why changes were made.
+//This repository documents the evolution of the algorithm, version by version, showing what worked, what failed, and why changes were made.
 
 > Logic > Emotion
 
@@ -23,27 +23,27 @@ This repository documents the evolution of the algorithm, version by version, sh
 
 //Objective
 
-Create the simplest possible automated decision logic.
+-->Create the simplest possible automated decision logic.
 
 //Logic
 
-If candle closes lower → SELL
+-->If candle closes lower → SELL
 
-If candle closes higher → BUY
+-->If candle closes higher → BUY
 
 
 //Outcome
 
-Too many false signals
+-->Too many false signals
 
-Highly sensitive to noise
+-->Highly sensitive to noise
 
-Not usable in live markets
+-->Not usable in live markets
 
 
 //Learning
 
-Markets are noisy. Raw price action needs smoothing.
+-->Markets are noisy. Raw price action needs smoothing.
 
 
 ---
@@ -52,27 +52,27 @@ Markets are noisy. Raw price action needs smoothing.
 
 //Objective
 
-Reduce noise by smoothing candle data.
+-->Reduce noise by smoothing candle data.
 
 //Logic
 
-Convert candles to Heikin Ashi
+-->Convert candles to Heikin Ashi
 
-Apply same buy/sell logic as v1.0
+-->Apply same buy/sell logic as v1.0
 
 
 //Outcome
 
-Smoother signals
+-->Smoother signals
 
-Reduced false entries
+-->Reduced false entries
 
-Still fails badly in sideways markets
+-->Still fails badly in sideways markets
 
 
 //Learning
 
-Smoothing alone is insufficient during consolidation phases.
+-->Smoothing alone is insufficient during consolidation phases.
 
 
 ---
@@ -81,27 +81,27 @@ Smoothing alone is insufficient during consolidation phases.
 
 //Objective
 
-Capture trend direction more clearly.
+-->Capture trend direction more clearly.
 
 //Logic
 
-If Close > HMA → BUY
+-->If Close > HMA → BUY
 
-Else → SELL
+-->Else → SELL
 
 
 //Outcome
 
-Better trend capture
+-->Better trend capture
 
-Faster response than EMA
+-->Faster response than EMA
 
-Continuous flip-flopping during sideways sessions
+-->Continuous flip-flopping during sideways sessions
 
 
 //Learning
 
-Trend indicators fail during transitions without context.
+-->Trend indicators fail during transitions without context.
 
 
 ---
@@ -110,58 +110,58 @@ Trend indicators fail during transitions without context.
 
 //Objective
 
-Separate market into trend and transition zones.
+-->Separate market into trend and transition zones.
 
 //Logic
 
-Buy above HMA High
+-->Buy above HMA High
 
-Sell below HMA Low
+-->Sell below HMA Low
 
-Hedge / wait in between
+-->Hedge / wait in between
 
 
 //Outcome
 
-Reduced false trades
+-->Reduced false trades
 
-Hedging stayed active too long
+-->Hedging stayed active too long
 
-Profit erosion during recoveries
+-->Profit erosion during recoveries
 
 
 //Learning
 
-Hedging can protect but also delay re-entry unnecessarily.
+-->Hedging can protect but also delay re-entry unnecessarily.
 
 
 ---
 
-//v3.3 — EMA-Based Trend Stability
+//v3.1 — EMA-Based Trend Stability
 
 //Objective
 
-Sacrifice speed for stability.
+-->Sacrifice speed for stability.
 
 //Logic
 
-Use EMA for trend confirmation
+-->Use EMA for trend confirmation
 
-Slower entries, cleaner exits
+-->Slower entries, cleaner exits
 
 
 //Outcome
 
-Fewer whipsaws
+-->Fewer whipsaws
 
-Lag caused late exits
+-->Lag caused late exits
 
-Small but consistent losses during reversals
+-->Small but consistent losses during reversals
 
 
 //Learning
 
-Lag is safer but not optimal during transitions.
+-->Lag is safer but not optimal during transitions.
 
 
 ---
@@ -170,27 +170,27 @@ Lag is safer but not optimal during transitions.
 
 //Objective
 
-Improve behavior during trend shifts.
+-->Improve behavior during trend shifts.
 
 //Logic
 
-EMA for direction
+-->EMA for direction
 
-ALMA for smoother transition detection
+-->ALMA for smoother transition detection
 
 
 //Outcome
 
-Improved stability
+-->Improved stability
 
-Still vulnerable during sharp sideways sessions
+-->Still vulnerable during sharp sideways sessions
 
-Complex interaction between indicators
+-->Complex interaction between indicators
 
 
 //Learning
 
-Transition handling is the hardest problem.
+-->Transition handling is the hardest problem.
 
 
 ---
@@ -199,33 +199,33 @@ Transition handling is the hardest problem.
 
 //Objective
 
-Observe pure decision behavior without safety nets.
+-->Observe pure decision behavior without safety nets.
 
 //Logic
 
-Buy if Close > ALMA High
+-->Buy if Close > ALMA High
 
-Sell if Close < ALMA Low
+-->Sell if Close < ALMA Low
 
-No stop loss
+-->No stop loss
 
-No hedging
+-->No hedging
 
-No profit target
+-->No profit target
 
 
 //Outcome
 
-Clear trend decisions
+-->Clear trend decisions
 
-Acceptable losses during transitions
+-->Acceptable losses during transitions
 
-Behavior fully visible in logs
+-->Behavior fully visible in logs
 
 
 //Learning
 
-Losses during transitions are unavoidable and must be understood, not hidden.
+-->Losses during transitions are unavoidable and must be understood, not hidden.
 
 
 ---
@@ -234,29 +234,29 @@ Losses during transitions are unavoidable and must be understood, not hidden.
 
 //Objective
 
-Reduce false trades during sideways markets.
+-->Reduce false trades during sideways markets.
 
 //Logic
 
-Buy only if Close > ALMA High AND ALMA Low
+-->Buy only if Close > ALMA High AND ALMA Low
 
-Sell only if Close < ALMA High AND ALMA Low
+-->Sell only if Close < ALMA High AND ALMA Low
 
-No trade in between
+-->No trade in between
 
 
 //Outcome
 
-Fewer trades
+-->Fewer trades
 
-Reduced overtrading
+-->Reduced overtrading
 
-Decision alignment ~70% (post-analysis)
+-->Decision alignment ~70% (post-analysis)
 
 
 //Learning
 
-Explicit transition zones improve consistency.
+-->Explicit transition zones improve consistency.
 
 
 ---
