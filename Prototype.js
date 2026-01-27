@@ -1,136 +1,148 @@
 /**
- * experiment.js
- * Prototype – ALMA High / Low decision engine
- * Paper-trade logic only (NO real execution)
- * 15-minute evaluation cycle
+ * TAlgo – ALMA High / Low Prototype
+ * Mode: DRY-RUN by default
+ * Execution: Disabled unless API credentials are provided
  *
- * NOTE:
- * - Broker API keys removed intentionally
- * - This file demonstrates system design & logic only
+ * Strategy Versions:
+ * v5.0  : C > ALMA_HIGH  -> BUY
+ *         C < ALMA_LOW   -> SELL
+ *
+ * v5.1  : C > ALMA_HIGH && C > ALMA_LOW -> BUY
+ *         C < ALMA_HIGH && C < ALMA_LOW -> SELL
+ *
+ * Check Interval: 15 minutes
  */
 
-const fs = require("fs");
+"use strict";
 
-/* ================= CONFIG ================= */
+// ================= CONFIG =================
 
-const SYMBOL = "MCX:ZINC_FUTURE";   // example symbol
-const INTERVAL = "15minute";
-const CHECK_EVERY = 15 * 60 * 1000; // 15 minutes
-const MAX_CANDLES = 200;
-const LOG_FILE = "experiment.log";
+const MODE = "DRY_RUN"; // change to "LIVE" only with env vars
+const STRATEGY_VERSION = "v5.1";
+const CHECK_INTERVAL_MIN = 15;
 
-/* ================= STATE ================= */
+// Symbol example (paper)
+const SYMBOL = "ZN-FUT";
 
-let closes = [];
-let position = "NONE"; // BUY | SELL | NONE
+// ================= AUTH BLOCK =================
 
-/* ================= UTIL ================= */
+function authenticateKite() {
+  if (!process.env.KITE_API_KEY || !process.env.KITE_ACCESS_TOKEN) {
+    console.log("[AUTH] No API credentials found → DRY-RUN mode");
+    return null;
+  }
 
-function log(msg) {
-  const time = new Date().toISOString();
-  fs.appendFileSync(LOG_FILE, `[${time}] ${msg}\n`);
-  console.log(`[${time}] ${msg}`);
+  const { KiteConnect } = require("kiteconnect");
+  const kite = new KiteConnect({
+    api_key: process.env.KITE_API_KEY,
+  });
+
+  kite.setAccessToken(process.env.KITE_ACCESS_TOKEN);
+  return kite;
 }
 
-/* ================= ALMA ================= */
+const kite = authenticateKite();
 
-function alma(values, length = 9, offset = 0.85, sigma = 6) {
-  if (values.length < length) return null;
+// ================= INDICATORS =================
 
-  const m = Math.floor(offset * (length - 1));
-  const s = length / sigma;
+function calculateALMA(values, period = 9, offset = 0.85, sigma = 6) {
+  if (values.length < period) return null;
 
-  let sum = 0;
+  const m = Math.floor(offset * (period - 1));
+  const s = period / sigma;
   let norm = 0;
+  let sum = 0;
 
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i < period; i++) {
     const w = Math.exp(-((i - m) ** 2) / (2 * s * s));
-    sum += values[values.length - length + i] * w;
     norm += w;
+    sum += values[values.length - period + i] * w;
   }
 
   return sum / norm;
 }
 
-/* ================= DECISION LOGIC ================= */
-/**
- * v5.1 – ALMA Confirmation
- * BUY  → price above ALMA High & Low
- * SELL → price below ALMA High & Low
- * Else → transition (no trade)
- */
+// ================= DATA MOCK =================
+// (Replace with Kite historical fetch in LIVE mode)
 
-function decide(price, almaHigh, almaLow) {
-  if (price > almaHigh && price > almaLow && position !== "BUY") {
-    return { action: "BUY", reason: "Above ALMA High & Low" };
+function getMarketData() {
+  // mock candle close prices
+  const closes = [];
+  for (let i = 0; i < 50; i++) {
+    closes.push(300 + Math.random() * 20);
   }
-
-  if (price < almaHigh && price < almaLow && position !== "SELL") {
-    return { action: "SELL", reason: "Below ALMA High & Low" };
-  }
-
-  return { action: "NO_TRADE", reason: "Transition zone" };
+  return closes;
 }
 
-/* ================= MOCK DATA SOURCE ================= */
-/**
- * Replaces broker API for prototype.
- * Simulates incoming market prices.
- */
+// ================= STRATEGY =================
 
-function mockMarketPrice() {
-  const base = closes.length ? closes[closes.length - 1] : 370;
-  return base + (Math.random() - 0.5) * 2;
-}
+function decideTrade(close, almaHigh, almaLow) {
+  if (!almaHigh || !almaLow) return null;
 
-/* ================= CORE LOOP ================= */
-
-function run() {
-  const price = mockMarketPrice();
-  closes.push(price);
-
-  // memory safety
-  if (closes.length > MAX_CANDLES) {
-    closes.shift();
+  if (STRATEGY_VERSION === "v5.0") {
+    if (close > almaHigh) return "BUY";
+    if (close < almaLow) return "SELL";
   }
 
-  const almaBase = alma(closes);
-  if (!almaBase) {
-    log("Waiting for sufficient data...");
+  if (STRATEGY_VERSION === "v5.1") {
+    if (close > almaHigh && close > almaLow) return "BUY";
+    if (close < almaHigh && close < almaLow) return "SELL";
+  }
+
+  return null;
+}
+
+// ================= EXECUTION =================
+
+function executeTrade(side, price) {
+  const order = {
+    symbol: SYMBOL,
+    side,
+    price,
+    time: new Date().toISOString(),
+  };
+
+  if (!kite) {
+    console.log("[DRY-RUN ORDER]", order);
     return;
   }
 
-  const almaHigh = almaBase * 1.002;
-  const almaLow = almaBase * 0.998;
+  // Real execution (disabled without creds)
+  kite.placeOrder("regular", order);
+}
 
-  const decision = decide(price, almaHigh, almaLow);
+// ================= LOGGING =================
 
-  log(
-    `Price=${price.toFixed(2)} | ALMA_H=${almaHigh.toFixed(2)} | ALMA_L=${almaLow.toFixed(2)} | POS=${position}`
-  );
+function logStatus(close, almaHigh, almaLow, decision) {
+  console.log("--------------------------------------------------");
+  console.log("TIME        :", new Date().toLocaleString());
+  console.log("CLOSE       :", close.toFixed(2));
+  console.log("ALMA HIGH   :", almaHigh?.toFixed(2));
+  console.log("ALMA LOW    :", almaLow?.toFixed(2));
+  console.log("DECISION    :", decision || "HOLD");
+}
 
-  if (decision.action === "BUY") {
-    position = "BUY";
-    log(`PAPER BUY → ${decision.reason}`);
-  } 
-  else if (decision.action === "SELL") {
-    position = "SELL";
-    log(`PAPER SELL → ${decision.reason}`);
-  } 
-  else {
-    log(`NO TRADE → ${decision.reason}`);
+// ================= MAIN LOOP =================
+
+function runAlgo() {
+  const prices = getMarketData();
+
+  const almaHigh = calculateALMA(prices);
+  const almaLow = calculateALMA(prices.map(p => p - 1)); // simulated low band
+  const close = prices[prices.length - 1];
+
+  const decision = decideTrade(close, almaHigh, almaLow);
+
+  logStatus(close, almaHigh, almaLow, decision);
+
+  if (decision) {
+    executeTrade(decision, close);
   }
 }
 
-/* ================= SCHEDULER ================= */
+console.log("=== TAlgo ALMA EXPERIMENT STARTED ===");
+console.log("Mode:", kite ? "LIVE" : "DRY-RUN");
+console.log("Strategy:", STRATEGY_VERSION);
 
-log("=== ALMA EXPERIMENT (PROTOTYPE) STARTED ===");
-run();
-setInterval(run, CHECK_EVERY);
-
-/* ================= HEALTH MONITOR ================= */
-
-setInterval(() => {
-  const mem = process.memoryUsage().rss / 1024 / 1024;
-  log(`HEALTH → Memory ${mem.toFixed(2)} MB`);
-}, 60 * 60 * 1000);
+runAlgo();
+setInterval(runAlgo, CHECK_INTERVAL_MIN * 60 * 1000);
