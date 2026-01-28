@@ -1,0 +1,22 @@
+//@version=5
+indicator("ALMA High-Low Band (Algo View)", overlay=true)
+
+// Inputs (match algo)
+length = input.int(20, "ALMA Length")
+offset = input.float(0.85, "Offset")
+sigma  = input.float(6, "Sigma")
+
+// ALMA on High & Low
+almaHigh = ta.alma(high, length, offset, sigma)
+almaLow  = ta.alma(low,  length, offset, sigma)
+
+// Plot bands
+plot(almaHigh, color=color.orange, linewidth=2, title="ALMA High")
+plot(almaLow,  color=color.aqua,   linewidth=2, title="ALMA Low")
+
+// Decision visualization (optional)
+buyCond  = close > almaHigh
+sellCond = close < almaLow
+
+plotshape(buyCond,  title="BUY",  style=shape.triangleup,   location=location.belowbar, color=color.green, size=size.tiny)
+plotshape(sellCond, title="SELL", style=shape.triangledown, location=location.abovebar, color=color.red,   size=size.tiny)
