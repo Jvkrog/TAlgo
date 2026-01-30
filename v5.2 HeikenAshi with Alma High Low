@@ -1,0 +1,125 @@
+/**
+ * v5.2 – Heikin Ashi + ALMA High / Low (Prototype)
+ * MODE: DRY RUN
+ * TIMEFRAME: 15 min
+ */
+
+const fs = require("fs");
+
+// =========================
+// CONFIG
+// =========================
+const SYMBOL = "ZN_FUT_TEST";
+const INTERVAL_MIN = 15;
+
+const ALMA_LENGTH = 20;
+const ALMA_OFFSET = 0.85;
+const ALMA_SIGMA = 6;
+
+// =========================
+// MOCK DATA 
+// =========================
+// Each candle: [open, high, low, close]
+const rawCandles = [
+  [332, 334, 331, 333],
+  [333, 335, 332, 334],
+  [334, 336, 333, 335],
+  [335, 337, 334, 336],
+  [336, 338, 335, 337],
+  [337, 339, 336, 338],
+  [338, 340, 337, 339],
+  [339, 341, 338, 340],
+  [340, 342, 339, 341],
+  [341, 343, 340, 342],
+  [342, 344, 341, 343],
+  [343, 345, 342, 344],
+  [344, 346, 343, 345],
+  [345, 347, 344, 346],
+  [346, 348, 345, 347],
+  [347, 349, 346, 348],
+  [348, 350, 347, 349],
+  [349, 351, 348, 350],
+  [350, 352, 349, 351],
+  [351, 353, 350, 352],
+];
+
+// =========================
+// HEIKIN ASHI
+// =========================
+function heikinAshi(candles) {
+  const ha = [];
+  let prevOpen = candles[0][0];
+  let prevClose = candles[0][3];
+
+  candles.forEach(([o, h, l, c], i) => {
+    const haClose = (o + h + l + c) / 4;
+    const haOpen = i === 0 ? (o + c) / 2 : (prevOpen + prevClose) / 2;
+    const haHigh = Math.max(h, haOpen, haClose);
+    const haLow = Math.min(l, haOpen, haClose);
+
+    ha.push([haOpen, haHigh, haLow, haClose]);
+
+    prevOpen = haOpen;
+    prevClose = haClose;
+  });
+
+  return ha;
+}
+
+// =========================
+// ALMA
+// =========================
+function alma(series, length, offset, sigma) {
+  if (series.length < length) return null;
+
+  const m = offset * (length - 1);
+  const s = length / sigma;
+  let sum = 0;
+  let norm = 0;
+
+  for (let i = 0; i < length; i++) {
+    const w = Math.exp(-((i - m) ** 2) / (2 * s * s));
+    sum += series[series.length - length + i] * w;
+    norm += w;
+  }
+
+  return sum / norm;
+}
+
+// =========================
+// MAIN LOGIC
+// =========================
+const haCandles = heikinAshi(rawCandles);
+
+const haHighs = haCandles.map(c => c[1]);
+const haLows  = haCandles.map(c => c[2]);
+const haClose = haCandles.map(c => c[3]);
+
+const almaHigh = alma(haHighs, ALMA_LENGTH, ALMA_OFFSET, ALMA_SIGMA);
+const almaLow  = alma(haLows,  ALMA_LENGTH, ALMA_OFFSET, ALMA_SIGMA);
+
+const lastClose = haClose[haClose.length - 1];
+
+let decision = "WAIT";
+if (almaHigh && lastClose > almaHigh) decision = "BUY";
+else if (almaLow && lastClose < almaLow) decision = "SELL";
+
+// =========================
+// LOG OUTPUT
+// =========================
+console.log("--------------------------------------------------");
+console.log("SYMBOL     :", SYMBOL);
+console.log("TIMEFRAME  :", INTERVAL_MIN, "min");
+console.log("MODE       : DRY RUN");
+console.log("--------------------------------------------------");
+console.log("PRICE (HA) :", lastClose.toFixed(2));
+console.log("ALMA HIGH  :", almaHigh ? almaHigh.toFixed(2) : "warming");
+console.log("ALMA LOW   :", almaLow ? almaLow.toFixed(2) : "warming");
+console.log("DECISION   :", decision);
+console.log("--------------------------------------------------");
+
+if (decision !== "WAIT") {
+  console.log(`[DRY-RUN ORDER] ${decision} @ ${lastClose.toFixed(2)}`);
+} else {
+  console.log("[ACTION] HOLD / NO TRADE");
+}
