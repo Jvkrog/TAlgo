@@ -260,3 +260,12 @@
 
 
 ---
+//v5.2 -ALMA with Heikin Ashi 
+
+-->Reintroduced Heikin Ashi Smoothing with ALMA 
+
+---
+
+//v6 Session Aware Explainable Decision System
+
+-->TAlgo v6 introduces session awareness, risk context, and explainable decisions, transforming a signal-based algo into a behavioral trading system.
