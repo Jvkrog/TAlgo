@@ -1,0 +1,130 @@
+TALGO v6 — SESSION-AWARE EXPLAINABLE DECISION SYSTEM
+===================================================
+
+START SYSTEM
+------------
+- Load environment variables
+    - If API keys exist → LIVE MODE
+    - Else → DRY MODE
+
+- Initialize system state
+    position = NONE
+    entry_price = 0
+    session_pnl = 0
+    max_drawdown = 0
+    mode = WAIT
+
+- Market timings
+    market_start = 09:00
+    market_end   = 23:00
+
+- Indicator config
+    ALMA_LENGTH
+    ALMA_OFFSET
+    ALMA_SIGMA
+
+- Warm-up
+    - Fetch historical candles (optional)
+    - Initialize ALMA buffers
+    - If ALMA not ready → WAIT
+
+
+MAIN LOOP (runs every 15-minute candle)
+---------------------------------------
+
+ON NEW CANDLE (time, open, high, low, close):
+
+1. SESSION CHECK
+   If time < market_start OR time >= market_end:
+       Log "Market closed"
+       Skip candle
+
+2. UPDATE DATA
+   Append close price to price buffer
+
+3. INDICATOR CALCULATION
+   alma_high = ALMA(high prices)
+   alma_low  = ALMA(low prices)
+
+   If alma_high or alma_low not ready:
+       decision = WAIT
+       reason = "Indicator warming"
+       Log decision
+       Skip candle
+
+4. CORE DECISION LOGIC
+   If close > alma_high:
+       decision = BUY
+       reason = "Break above ALMA High"
+
+   Else if close < alma_low:
+       decision = SELL
+       reason = "Break below ALMA Low"
+
+   Else:
+       decision = HOLD
+       reason = "Inside ALMA range"
+
+5. CONTEXT & RISK FILTERS
+   If drawdown exceeds allowed limit:
+       decision = HOLD
+       reason = "Drawdown protection active"
+
+   If cooldown after loss is active:
+       decision = WAIT
+       reason = "Cooldown period"
+
+6. EXECUTION LOGIC
+   If decision == BUY AND position != LONG:
+       Execute BUY
+       position = LONG
+       entry_price = close
+
+   If decision == SELL AND position != SHORT:
+       Execute SELL
+       position = SHORT
+       entry_price = close
+
+7. P&L TRACKING
+   If position exists:
+       If position == LONG:
+           unrealized_pnl = close - entry_price
+       Else if position == SHORT:
+           unrealized_pnl = entry_price - close
+
+       session_pnl = unrealized_pnl
+       max_drawdown = min(max_drawdown, session_pnl)
+
+8. EXPLAINABLE LOGGING (AI WITH PURPOSE)
+   Log:
+       - timestamp
+       - price
+       - decision
+       - reason
+       - alma_high
+       - alma_low
+       - position
+       - session_pnl
+       - max_drawdown
+       - mode
+
+END-OF-DAY HANDLING
+-------------------
+If time >= market_end:
+    Close open positions
+    Log "Session ended"
+    Reset:
+        session_pnl = 0
+        max_drawdown = 0
+        position = NONE
+    Wait for next trading day
+
+
+PHILOSOPHY
+----------
+- Logic > Emotion
+- Stability > Speed
+- Explainability > Blind execution
+
+v6 is not about predicting the market.
+v6 is about controlling system behavior.
