@@ -270,6 +270,8 @@
 
 -->TAlgo v6 introduces session awareness, risk context, and explainable decisions, transforming a signal-based algo into a behavioral trading system.
 
+---
+
 //v7 — Dynamic Trend Commitment
 //Objective
 -->Improve profit capture during strong trends
