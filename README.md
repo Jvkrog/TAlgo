@@ -269,3 +269,40 @@
 //v6 Session Aware Explainable Decision System
 
 -->TAlgo v6 introduces session awareness, risk context, and explainable decisions, transforming a signal-based algo into a behavioral trading system.
+
+//v7 — Dynamic Trend Commitment
+//Objective
+-->Improve profit capture during strong trends
+
+-->Maintain safety during sideways markets
+
+//Logic
+
+-->Initial entry uses ALMA band breakout (v5 logic)
+
+-->Position starts with 1 lot (probe entry)
+
+-->If trend confirms:
+   EMA slope supports direction
+   Price continues beyond ALMA band
+
+-->Scale to 2 lots
+
+-->If confirmation fails → exit early
+
+//Outcome
+
+-->Strong trends captured more effectively
+
+-->Reduced risk from false breakouts
+
+-->Probe entries minimize transition losses
+
+-->Clear behavior visible in logs
+
+//Learning
+
+-->Market rewards commitment after confirmation, not before.
+
+-->Scaling improves efficiency without increasing emotional risk.
+
