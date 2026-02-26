@@ -297,5 +297,92 @@
 
 -->Market rewards commitment after confirmation, not before.
 
+//v8 — Stability Reinforcement Layer
+
+//Objective
+
+-->Reduce behavioral instability after scaling
+
+-->Improve sideways handling without adding complexity
+
+
+//Logic
+
+-->Retain v7 probe → confirm → scale structure
+
+-->Introduce stricter sideways filter using ALMA bandwidth
+
+-->Exit immediately if bandwidth compresses after entry
+
+-->Limit scaling frequency (no repeated adds)
+
+-->Cleaner session-level logging
+
+
+//Outcome
+
+-->Fewer unnecessary scale-ins
+
+-->Reduced losses during compression phases
+
+-->Improved behavioral consistency
+
+-->More stable PnL curve during choppy days
+
+
+//Learning
+
+-->Stability is more important than aggressiveness.
+
+-->Sideways markets must be respected, not fought.
+
+
+---
+
+
+//v9 — Context-Aware Attack Logic
+
+//Objective
+
+-->Make scaling conditional on real momentum
+
+-->Prevent premature commitment
+
+
+//Logic
+
+-->Probe entry at ALMA breakout (v7 base)
+
+-->Confirm using:
+
+   EMA slope strength
+   ALMA bandwidth expansion
+
+-->Scale only if:
+   Trend strength > threshold
+   Bandwidth expanding (volatility expansion)
+
+-->Introduce state machine:
+   WAIT → PROBE → ATTACK
+
+-->Exit immediately if expansion fails
+
+
+//Outcome
+
+-->More intelligent attack timing
+
+-->Reduced scaling in false breakouts
+
+-->Clear separation between testing (probe) and commitment (attack)
+
+-->Behavior became more structured and explainable
+
+
+//Learning
+
+-->Volatility expansion confirms intent.
+
+-->Commitment should follow evidence, not expectation.
 
 
