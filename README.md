@@ -282,23 +282,14 @@
 
 -->Initial entry uses ALMA band breakout (v5 logic)
 
--->Position starts with 1 lot (probe entry)
+-->Position starts with 1 lot 
 
--->If trend confirms:
-   EMA slope supports direction
-   Price continues beyond ALMA band
+-->Simple lot scaling when trend confirmed
 
--->Scale to 2 lots
-
--->If confirmation fails → exit early
 
 //Outcome
 
 -->Strong trends captured more effectively
-
--->Reduced risk from false breakouts
-
--->Probe entries minimize transition losses
 
 -->Clear behavior visible in logs
 
@@ -306,5 +297,5 @@
 
 -->Market rewards commitment after confirmation, not before.
 
--->Scaling improves efficiency without increasing emotional risk.
+
 
