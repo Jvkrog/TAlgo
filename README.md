@@ -460,7 +460,7 @@ The goal is not just profitability, but consistent and explainable decision maki
 
 ---
 
-#Research Log
+## Research Log
 This section records the major behavioral failures observed during development and the changes made to address them.
 Market Noise Problem
 Early versions (v01, v01.1) reacted too strongly to small price movements.
