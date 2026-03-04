@@ -13,6 +13,7 @@ Rule-based breakout trading engine developed through iterative algorithm researc
 - Algorithm Evolution
 - Development Philosophy
 
+---
 //Overview
 
 --> TAlgo is a rule-based trading decision system built to reduce emotional bias (fear, greed, revenge trading) in live markets.
@@ -33,6 +34,8 @@ Rule-based breakout trading engine developed through iterative algorithm researc
 
 > Logic > Emotion
 
+---
+
 ## System Summary
 
 Strategy Type: Breakout + Confirmation  
@@ -40,6 +43,7 @@ Market: MCX Zinc Futures
 Execution: 15-minute candles  
 Design Goal: Consistent, explainable trading behavior
 
+---
 
 ## Repository Structure
 
@@ -51,8 +55,6 @@ README.md       → Project documentation
 
 # Algorithm Evolution
 
-
----
 
 v01 — Raw Candle Logic
 
@@ -476,12 +478,10 @@ Market transitions between trend and sideways phases caused most losses.
 Result
 Entries occurred before trend confirmation.
 Solution
-Introduce multi-stage decision systems:
-Copy code
+Introduce multi-stage decision systems
 
 WAIT → PROBE → ATTACK
 and later
-Copy code
 
 WAIT → PROBATION → CONFIRMED
 Overcommitment Risk
