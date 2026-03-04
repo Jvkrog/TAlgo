@@ -408,4 +408,31 @@ Logic > Emotion
 
 
 ---
+```mermaid
+flowchart TD
 
+A[Market Data Feed] --> B[Candle Processing]
+
+B --> C[Indicator Layer]
+
+C --> D[Decision Engine]
+
+D --> E[State Machine]
+
+E --> F[Position Management]
+
+F --> G[Logs]
+```
+
+
+```mermaid
+flowchart TD
+
+A[WAIT] --> B[PROBATION]
+
+B --> C[CONFIRMED]
+
+B --> A
+
+C --> A
+```
