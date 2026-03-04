@@ -15,6 +15,7 @@ Rule-based breakout trading engine developed through iterative algorithm researc
 - Research Log
 
 ---
+
 //Overview
 
 --> TAlgo is a rule-based trading decision system built to reduce emotional bias (fear, greed, revenge trading) in live markets.
@@ -54,8 +55,11 @@ README.md       → Project documentation
 
 ---
 
-# Algorithm Evolution
+## Algorithm Evolution
 
+The following section documents the step-by-step evolution of the trading algorithm.
+
+Each version represents an experiment aimed at improving decision stability, trend capture, and behavior during market transitions.
 
 v01 — Raw Candle Logic
 
@@ -534,8 +538,10 @@ C --> A
 ```
 ---
 
-### Author
+---
 
-Developed by **Jvkrog**
+## Author
 
-Algorithm research focused on rule-based trading systems and behavioral market analysis.
+Developed by **jvkrog**
+
+Focused on rule-based trading systems, behavioral market analysis, and algorithmic strategy research.
