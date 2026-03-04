@@ -1,3 +1,22 @@
+// ==========================================
+// TAlgo v07 – Dynamic Trend Commitment
+// ==========================================
+// Objective:
+// Capture larger profits during strong trends.
+//
+// Logic:
+// Breakout entry → start with 1 lot
+// Trend confirmation → scale position
+//
+// Outcome:
+// Better participation during trends.
+//
+// Learning:
+// Commitment should follow confirmation.
+// ==========================================
+
+
+
 const KiteConnect = require("kiteconnect").KiteConnect;
 const KiteTicker = require("kiteconnect").KiteTicker;
 const fs = require("fs");
