@@ -406,6 +406,37 @@ WAIT → PROBATION → CONFIRMED
 
 --> Structured decision phases improve discipline.
 
+---
+
+## Strategy Evolution
+
+```mermaid
+flowchart LR
+
+v1[ v01 Raw Candle ] --> v11[ v01.1 Heikin Ashi ]
+
+v1.1 --> v2[ v02 HMA Trend ]
+
+v2 --> v3[ v03 High / Low Zones ]
+
+v3 --> v3.1[ v03.1 EMA Stability ]
+
+v3.1 --> v4[ v04 EMA + ALMA ]
+
+v4 --> v5[ v05 ALMA Breakout ]
+
+v5 --> v5.1[ v05.1 ALMA Confirmation ]
+
+v5.1 --> v6[ v06 Session Engine ]
+
+v6 --> v7[ v07 Dynamic Commitment ]
+
+v7 --> v8[ v08 Stability Layer ]
+
+v8 --> v9[ v09 Context Attack Logic ]
+
+v9 --> v10[ v10 Structured Breakout ]
+```
 
 ---
 
@@ -426,6 +457,47 @@ The goal is not just profitability, but consistent and explainable decision maki
 
 ---
 
+Research Log
+This section records the major behavioral failures observed during development and the changes made to address them.
+Market Noise Problem
+Early versions (v01, v01.1) reacted too strongly to small price movements.
+Result
+Too many false signals.
+Solution
+Introduce smoothing indicators like Heikin Ashi and later ALMA.
+Sideways Market Problem
+Versions v02–v04 showed strong performance in trends but produced repeated losses during consolidation.
+Result
+Frequent signal flip-flopping.
+Solution
+Introduce band-based logic and later ALMA channel filtering.
+Transition Problem
+Market transitions between trend and sideways phases caused most losses.
+Result
+Entries occurred before trend confirmation.
+Solution
+Introduce multi-stage decision systems:
+Copy code
+
+WAIT → PROBE → ATTACK
+and later
+Copy code
+
+WAIT → PROBATION → CONFIRMED
+Overcommitment Risk
+Earlier versions committed full position size immediately after entry.
+Result
+Large losses during false breakouts.
+Solution
+Introduce gradual position scaling.
+System Stability
+Sideways compression caused unstable behaviour.
+Result
+Frequent entries and exits.
+Solution
+Introduce bandwidth filters and stability layers.
+
+---
 Core Principle
 
 Logic > Emotion
