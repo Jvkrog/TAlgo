@@ -1,9 +1,17 @@
-TAlgo
+# TAlgo
 
 ![Version](https://img.shields.io/badge/version-v10-blue)
 ![Strategy](https://img.shields.io/badge/strategy-breakout-green)
 ![Market](https://img.shields.io/badge/market-MCX-orange)
 ![Language](https://img.shields.io/badge/language-Node.js-yellow)
+
+Rule-based breakout trading engine developed through iterative algorithm research.
+
+## Contents
+
+- Overview
+- Algorithm Evolution
+- Development Philosophy
 
 //Overview
 
@@ -25,12 +33,23 @@ TAlgo
 
 > Logic > Emotion
 
+## System Summary
+
+Strategy Type: Breakout + Confirmation  
+Market: MCX Zinc Futures  
+Execution: 15-minute candles  
+Design Goal: Consistent, explainable trading behavior
 
 
+## Repository Structure
+
+PineScript/     → TradingView prototype scripts  
+versions/       → Evolution of the algorithm (v01 → v10)  
+README.md       → Project documentation
 
 ---
 
-Algorithm Evolution
+# Algorithm Evolution
 
 
 ---
