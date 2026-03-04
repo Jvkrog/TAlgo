@@ -499,12 +499,6 @@ Solution
 Introduce bandwidth filters and stability layers.
 
 ---
-Core Principle
-
-Logic > Emotion
-
-
----
 ```mermaid
 flowchart TD
 
