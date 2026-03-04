@@ -1,3 +1,26 @@
+// ==========================================
+// TAlgo v10 – Structured Breakout Engine
+// ==========================================
+// Objective:
+// Implement a clean breakout state machine.
+//
+// State Machine:
+// WAIT → PROBATION → CONFIRMED
+//
+// Indicators:
+// ALMA breakout levels
+// EMA slope confirmation
+//
+// Features:
+// Controlled scaling
+// Structured logging
+// Session lifecycle management.
+//
+// Result:
+// A stable, explainable breakout engine.
+// ==========================================
+
+
 require("dotenv").config();
 
 const { KiteConnect } = require("kiteconnect");
@@ -244,3 +267,4 @@ setInterval(()=>{
     run().catch(err=>log("ERROR: "+err.message));
 
 }, 1000);
+
