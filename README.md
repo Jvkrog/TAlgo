@@ -1,5 +1,10 @@
 TAlgo
 
+![Version](https://img.shields.io/badge/version-v10-blue)
+![Strategy](https://img.shields.io/badge/strategy-breakout-green)
+![Market](https://img.shields.io/badge/market-MCX-orange)
+![Language](https://img.shields.io/badge/language-Node.js-yellow)
+
 //Overview
 
 --> TAlgo is a rule-based trading decision system built to reduce emotional bias (fear, greed, revenge trading) in live markets.
