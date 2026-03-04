@@ -1,3 +1,23 @@
+// ==========================================
+// TAlgo v06 – Session Aware Decision Engine
+// ==========================================
+// Objective:
+// Add session awareness and structured logging.
+//
+// Features:
+// Market session tracking
+// PnL monitoring
+// Cooldown after losses
+//
+// Outcome:
+// System behavior became explainable
+// through logs.
+//
+// Learning:
+// A trading engine needs session context.
+// ==========================================
+
+
 const KiteConnect = require("kiteconnect").KiteConnect;
 const KiteTicker = require("kiteconnect").KiteTicker;
 const fs = require("fs");
