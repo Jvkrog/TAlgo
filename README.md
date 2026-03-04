@@ -385,4 +385,220 @@
 
 -->Commitment should follow evidence, not expectation.
 
+---
+
+
+TAlgo v10
+
+//Overview
+
+--> TAlgo is a rule-based trading decision system built to reduce emotional bias (fear, greed, revenge trading) in live markets.
+
+--> This version focuses on structured breakout trading using ALMA channels and EMA trend confirmation.
+
+--> The system runs on 15-minute candles and executes trades only when predefined conditions are satisfied.
+
+
+---
+
+Project Focus
+
+--> Decision consistency
+
+--> Trend breakout detection
+
+--> Simple state-based trade execution
+
+--> Learning from iterative development
+
+--> Transparent behavior through console logs
+
+
+---
+
+Strategy Idea
+
+--> The algorithm detects price breakouts beyond dynamic ALMA boundaries.
+
+--> Trades are not taken immediately; they pass through a confirmation stage before committing full position size.
+
+--> This prevents false breakouts and reduces impulsive entries.
+
+
+---
+
+Core Indicators
+
+--> Heikin Ashi
+
+Used to smooth candle noise and improve trend clarity.
+
+
+---
+
+--> EMA (20)
+
+Used to measure trend direction through slope calculation.
+
+
+---
+
+--> ALMA (Arnaud Legoux Moving Average)
+
+Used to create upper and lower breakout boundaries for entries.
+
+
+---
+
+Strategy Flow
+
+WAIT
+ ↓
+PROBATION
+ ↓
+CONFIRMED
+
+
+---
+
+WAIT
+
+--> The system monitors the market for breakouts.
+
+Conditions:
+
+--> Price > ALMA High → Potential LONG
+
+--> Price < ALMA Low → Potential SHORT
+
+Action:
+
+--> Enter 1 lot
+
+State → PROBATION
+
+
+---
+
+PROBATION
+
+--> Breakout validation stage.
+
+Confirmation rules:
+
+--> LONG requires positive EMA slope
+
+--> SHORT requires negative EMA slope
+
+If confirmed:
+
+--> Add 1 additional lot
+
+If breakout fails:
+
+--> Exit position immediately
+
+
+---
+
+CONFIRMED
+
+--> Trend management phase.
+
+Exit rules:
+
+--> LONG exits when price falls back below ALMA High
+
+--> SHORT exits when price rises above ALMA Low
+
+This allows the system to ride trends but exit on pullbacks.
+
+
+---
+
+Execution Timing
+
+--> Strategy runs every 15 minutes.
+
+--> Execution occurs 5 seconds after candle close to ensure completed data.
+
+
+---
+
+Market Scope
+
+--> Instrument: MCX Zinc Futures
+
+--> Trading hours:
+
+09:00 → 23:00
+
+
+---
+
+Position Logic
+
+--> Initial entry: 1 lot
+
+--> Confirmation scaling: +1 lot
+
+--> Contract multiplier:
+
+LOT_MULTIPLIER = 5000
+
+PnL calculation:
+
+price difference × lots × multiplier
+
+
+---
+
+System Design Goals
+
+--> Simple and explainable logic
+
+--> Minimal indicators
+
+--> Structured trade confirmation
+
+--> Clear log-based behavior tracking
+
+
+---
+
+Limitations (This Version)
+
+--> No drawdown protection
+
+--> No risk state machine
+
+--> No volatility filters
+
+--> No Telegram notifications
+
+--> No tick-level risk control
+
+These protections were introduced in later versions of the engine.
+
+
+---
+
+Development Philosophy
+
+--> The system evolves through real-market observations and iteration.
+
+--> Each version documents improvements in logic, stability, and risk control.
+
+
+---
+
+Core Principle
+
+Logic > Emotion
+
+
+---
+
+
+
 
