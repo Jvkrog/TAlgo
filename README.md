@@ -482,9 +482,14 @@ Solution
 Introduce multi-stage decision systems
 
 WAIT → PROBE → ATTACK
+
+
 and later
 
+
 WAIT → PROBATION → CONFIRMED
+
+
 Overcommitment Risk
 Earlier versions committed full position size immediately after entry.
 Result
