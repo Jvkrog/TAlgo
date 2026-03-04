@@ -1,6 +1,19 @@
-// ===============================
-// TALGO v8 – Stability Version
-// ===============================
+// ==========================================
+// TAlgo v08 – Stability Reinforcement Layer
+// ==========================================
+// Objective:
+// Avoid trading during sideways compression.
+//
+// Logic:
+// Measure ALMA band width.
+// If band compresses → exit trades.
+//
+// Outcome:
+// Reduced losses during sideways markets.
+//
+// Learning:
+// Stability is more important than aggression.
+// ==========================================
 
 const SIDEWAYS_BAND = 0.35;
 const MAX_LOTS = 2;
