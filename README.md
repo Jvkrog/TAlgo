@@ -542,6 +542,6 @@ C --> A
 
 ## Author
 
-Developed by **jvkrog**
+Developed by **Jvkrog**
 
 Focused on rule-based trading systems, behavioral market analysis, and algorithmic strategy research.
