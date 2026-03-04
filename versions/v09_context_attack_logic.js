@@ -1,6 +1,19 @@
-// ===============================
-// TALGO v9 – Intelligence Version
-// ===============================
+// ==========================================
+// TAlgo v09 – Context Aware Attack Logic
+// ==========================================
+// Objective:
+// Scale positions only when real momentum exists.
+//
+// State Machine:
+// WAIT → PROBE → ATTACK
+//
+// Confirmation:
+// EMA slope strength
+// ALMA bandwidth expansion
+//
+// Outcome:
+// Smarter scaling and fewer false breakouts.
+// ==========================================
 
 const SIDEWAYS_BAND = 0.35;
 const ATTACK_BAND = 0.6;
