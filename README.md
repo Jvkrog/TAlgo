@@ -532,3 +532,10 @@ B --> A
 
 C --> A
 ```
+---
+
+### Author
+
+Developed by **Jvkrog**
+
+Algorithm research focused on rule-based trading systems and behavioral market analysis.
