@@ -1,0 +1,128 @@
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ✅ audit secrets and track compliance: https://dotenvx.com/ops
+Fetching historical...
+From: 2026-02-04T03:30:00.000Z
+To: 2026-02-06T17:30:00.000Z
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+Fetching historical...
+From: 2026-02-04T03:30:00.000Z
+To: 2026-02-06T17:30:00.000Z
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+Fetching historical...
+From: 2026-02-04T03:30:00.000Z
+To: 2026-02-06T17:30:00.000Z
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+Fetching historical...
+From: 2026-02-04T03:30:00.000Z
+To: 2026-02-06T17:30:00.000Z
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+Fetching historical...
+From: 2026-02-04T03:30:00.000Z
+To: 2026-02-06T17:30:00.000Z
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+Fetching historical...
+From: 2026-02-04T03:30:00.000Z
+To: 2026-02-06T17:30:00.000Z
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+Fetching historical...
+From: 2026-02-04T03:30:00.000Z
+To: 2026-02-06T17:30:00.000Z
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+Fetching historical...
+From: 2026-02-04T03:30:00.000Z
+To: 2026-02-06T17:30:00.000Z
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+Fetching historical...
+From: 2026-02-04T03:30:00.000Z
+To: 2026-02-06T17:30:00.000Z
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+Fetching historical...
+From: 2026-02-04T03:30:00.000Z
+To: 2026-02-06T17:30:00.000Z
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+Fetching historical...
+From: 2026-02-04T03:30:00.000Z
+To: 2026-02-06T17:30:00.000Z
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+Fetching historical...
+From: 2026-02-04T03:30:00.000Z
+To: 2026-02-06T17:30:00.000Z
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ✅ audit secrets and track compliance: https://dotenvx.com/ops
+Fetching historical...
+From: 2026-02-04T03:30:00.000Z
+To: 2026-02-06T17:30:00.000Z
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+Fetching historical...
+From: 2026-02-04T03:30:00.000Z
+To: 2026-02-06T17:30:00.000Z
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+Fetching historical...
+From: 2026-02-04T03:30:00.000Z
+To: 2026-02-06T17:30:00.000Z
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+Fetching historical...
+From: 2026-02-04T03:30:00.000Z
+To: 2026-02-06T17:30:00.000Z
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+Fetching historical...
+From: 2026-02-05 09:00:00
+To: 2026-02-06 17:27:00
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔑 add access controls to secrets: https://dotenvx.com/ops
+Fetching historical...
+From: 2026-02-05 09:00:00
+To: 2026-02-06 17:27:00
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔄 add secrets lifecycle management: https://dotenvx.com/ops
+Fetching historical...
+From: 2026-02-05 09:00:00
+To: 2026-02-06 17:27:00
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+Fetching historical...
+From: 2026-02-05 09:00:00
+To: 2026-02-06 17:27:00
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+Fetching historical...
+From: 2026-02-05 09:00:00
+To: 2026-02-06 17:27:00
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  override existing env vars with { override: true }
+Fetching historical...
+From: 2026-02-05 09:00:00
+To: 2026-02-06 17:27:00
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+Fetching historical...
+From: 2026-02-05 09:00:00
+To: 2026-02-06 17:27:00
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔑 add access controls to secrets: https://dotenvx.com/ops
+Fetching historical...
+From: 2026-02-05 09:00:00
+To: 2026-02-06 17:27:00
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+Fetching historical...
+From: 2026-02-05 09:00:00
+To: 2026-02-06 17:27:00
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🗂️ backup and recover secrets: https://dotenvx.com/ops
+Fetching historical...
+From: 2026-02-05 09:00:00
+To: 2026-02-06 17:27:00
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+Fetching historical...
+From: 2026-02-05 09:00:00
+To: 2026-02-06 17:27:00
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+Fetching historical...
+From: 2026-02-05 09:00:00
+To: 2026-02-06 17:27:00
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+Fetching historical...
+From: 2026-02-05 09:00:00
+To: 2026-02-06 17:27:00
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 👥 sync secrets across teammates & machines: https://dotenvx.com/ops
+Fetching historical...
+From: 2026-02-05 09:00:00
+To: 2026-02-06 17:27:00
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+Fetching historical...
+From: 2026-02-05 09:00:00
+To: 2026-02-06 17:27:00
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+Fetching historical...
+From: 2026-02-05 09:00:00
+To: 2026-02-06 17:27:00

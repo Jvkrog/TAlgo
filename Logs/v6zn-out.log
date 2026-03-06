@@ -1,0 +1,51 @@
+LIVE MODE ENABLED
+ TAlgo v6 started
+LIVE MODE ENABLED
+ TAlgo v6 started
+[MODE] LIVE
+[OK] Instrument token: 122155783
+TAlgo v6 started
+{"time":"1/30/2026, 4:37:58 PM","action":"HOLD","reason":"Inside ALMA channel","position":null,"sessionPnL":0,"drawdown":0}
+{"time":"1/30/2026, 4:52:58 PM","action":"HOLD","reason":"Inside ALMA channel","position":null,"sessionPnL":0,"drawdown":0}
+{"time":"1/30/2026, 5:07:58 PM","action":"HOLD","reason":"Inside ALMA channel","position":null,"sessionPnL":0,"drawdown":0}
+{"time":"1/30/2026, 5:22:58 PM","action":"HOLD","reason":"Inside ALMA channel","position":null,"sessionPnL":0,"drawdown":0}
+{"time":"1/30/2026, 5:37:58 PM","action":"HOLD","reason":"Inside ALMA channel","position":null,"sessionPnL":0,"drawdown":0}
+{"time":"1/30/2026, 5:52:58 PM","action":"HOLD","reason":"Inside ALMA channel","position":null,"sessionPnL":0,"drawdown":0}
+{"time":"1/30/2026, 6:07:58 PM","action":"HOLD","reason":"Inside ALMA channel","position":null,"sessionPnL":0,"drawdown":0}
+{"time":"1/30/2026, 6:22:58 PM","action":"SELL","reason":"Break below ALMA Low","position":null,"sessionPnL":0,"drawdown":0}
+{"time":"1/30/2026, 6:37:58 PM","action":"SELL","reason":"Break below ALMA Low","position":"SHORT","sessionPnL":0,"drawdown":0}
+{"time":"1/30/2026, 6:52:58 PM","action":"HOLD","reason":"Inside ALMA channel","position":"SHORT","sessionPnL":0,"drawdown":0}
+{"time":"1/30/2026, 7:07:58 PM","action":"HOLD","reason":"Inside ALMA channel","position":"SHORT","sessionPnL":0,"drawdown":0}
+{"time":"1/30/2026, 7:22:58 PM","action":"HOLD","reason":"Inside ALMA channel","position":"SHORT","sessionPnL":0,"drawdown":0}
+{"time":"1/30/2026, 7:37:58 PM","action":"BUY","reason":"Break above ALMA High","position":"SHORT","sessionPnL":0,"drawdown":0}
+{"time":"1/30/2026, 7:52:58 PM","action":"BUY","reason":"Break above ALMA High","position":"LONG","sessionPnL":-2.3000000000000114,"drawdown":-2.3000000000000114}
+{"time":"1/30/2026, 8:07:58 PM","action":"BUY","reason":"Break above ALMA High","position":"LONG","sessionPnL":-2.3000000000000114,"drawdown":-2.3000000000000114}
+{"time":"1/30/2026, 8:22:58 PM","action":"BUY","reason":"Break above ALMA High","position":"LONG","sessionPnL":-2.3000000000000114,"drawdown":-2.3000000000000114}
+{"time":"1/30/2026, 8:37:58 PM","action":"HOLD","reason":"Inside ALMA channel","position":"LONG","sessionPnL":-2.3000000000000114,"drawdown":-2.3000000000000114}
+{"time":"1/30/2026, 8:52:58 PM","action":"BUY","reason":"Break above ALMA High","position":"LONG","sessionPnL":-2.3000000000000114,"drawdown":-2.3000000000000114}
+{"time":"1/30/2026, 9:07:58 PM","action":"HOLD","reason":"Inside ALMA channel","position":"LONG","sessionPnL":-2.3000000000000114,"drawdown":-2.3000000000000114}
+{"time":"1/30/2026, 9:22:58 PM","action":"HOLD","reason":"Inside ALMA channel","position":"LONG","sessionPnL":-2.3000000000000114,"drawdown":-2.3000000000000114}
+{"time":"1/30/2026, 9:37:58 PM","action":"HOLD","reason":"Inside ALMA channel","position":"LONG","sessionPnL":-2.3000000000000114,"drawdown":-2.3000000000000114}
+{"time":"1/30/2026, 9:52:58 PM","action":"SELL","reason":"Break below ALMA Low","position":"LONG","sessionPnL":-2.3000000000000114,"drawdown":-2.3000000000000114}
+{"time":"1/30/2026, 10:07:58 PM","action":"SELL","reason":"Break below ALMA Low","position":"SHORT","sessionPnL":-3.8000000000000114,"drawdown":-3.8000000000000114}
+{"time":"1/30/2026, 10:22:58 PM","action":"SELL","reason":"Break below ALMA Low","position":"SHORT","sessionPnL":-3.8000000000000114,"drawdown":-3.8000000000000114}
+{"time":"1/30/2026, 10:37:58 PM","action":"SELL","reason":"Break below ALMA Low","position":"SHORT","sessionPnL":-3.8000000000000114,"drawdown":-3.8000000000000114}
+{"time":"1/30/2026, 10:52:58 PM","action":"SELL","reason":"Break below ALMA Low","position":"SHORT","sessionPnL":-3.8000000000000114,"drawdown":-3.8000000000000114}
+[MODE] LIVE
+[OK] Instrument token: 122155783
+TAlgo v6 started
+[MODE] LIVE
+[OK] Instrument token: 122155783
+TAlgo v6 started
+[MODE] LIVE
+[OK] Instrument token: 122155783
+TAlgo v6 started
+[MODE] LIVE
+[OK] Instrument token: 122155783
+TAlgo v6 started
+[MODE] DRY RUN
+[OK] Instrument token: 122155783
+TAlgo v6 started
+[MODE] DRY RUN
+[OK] Instrument token: 122155783
+TAlgo v6 started
