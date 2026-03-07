@@ -1,6 +1,6 @@
 # TAlgo
 
-![Version](https://img.shields.io/badge/version-v10-blue)
+![Version](https://img.shields.io/badge/version-Elite-blue)
 ![Strategy](https://img.shields.io/badge/strategy-breakout-green)
 ![Market](https://img.shields.io/badge/market-MCX-orange)
 ![Language](https://img.shields.io/badge/language-Node.js-yellow)
