@@ -1,0 +1,432 @@
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[8:08:30 PM] ====================================
+[8:08:30 PM] TAlgo Engine Started
+[8:08:30 PM] Mode: PAPER
+[8:08:30 PM] Time: 2/25/2026, 8:08:30 PM
+[8:08:30 PM] Status: Market ACTIVE
+[8:08:30 PM] ====================================
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[8:11:01 PM] ====================================
+[8:11:01 PM] TAlgo Engine Started
+[8:11:01 PM] Mode: PAPER
+[8:11:02 PM] Time: 2/25/2026, 8:11:01 PM
+[8:11:02 PM] Status: Market ACTIVE
+[8:11:02 PM] ====================================
+[8:15:05 PM] Candle Time: 8:15:05 PM
+[8:15:05 PM] Price:328 | ALMA-H:328.51 | ALMA-L:328.08 | Phase:SIDEWAYS
+[8:15:05 PM] TrendSlope: -0.0467
+[8:15:05 PM] ENTER SHORT 1 LOT @ 328
+[8:30:05 PM] Candle Time: 8:30:05 PM
+[8:30:05 PM] Price:328.25 | ALMA-H:328.47 | ALMA-L:328.04 | Phase:SIDEWAYS
+[8:30:05 PM] TrendSlope: -0.0518
+[8:30:05 PM] EXIT SHORT 1 LOT @ 328.25
+[8:30:05 PM] TradePnL: -1250 | SessionPnL: -1250
+[8:45:05 PM] Candle Time: 8:45:05 PM
+[8:45:05 PM] Price:328.15 | ALMA-H:328.43 | ALMA-L:328.01 | Phase:SIDEWAYS
+[8:45:05 PM] TrendSlope: -0.0385
+[9:00:05 PM] Candle Time: 9:00:05 PM
+[9:00:05 PM] Price:327.9 | ALMA-H:328.38 | ALMA-L:327.98 | Phase:SIDEWAYS
+[9:00:05 PM] TrendSlope: -0.0455
+[9:00:05 PM] ENTER SHORT 1 LOT @ 327.9
+[9:15:05 PM] Candle Time: 9:15:05 PM
+[9:15:05 PM] Price:328.1 | ALMA-H:328.36 | ALMA-L:327.96 | Phase:SIDEWAYS
+[9:15:05 PM] TrendSlope: -0.0376
+[9:15:05 PM] EXIT SHORT 1 LOT @ 328.1
+[9:15:05 PM] TradePnL: -1000 | SessionPnL: -2250
+[9:30:05 PM] Candle Time: 9:30:05 PM
+[9:30:05 PM] Price:328 | ALMA-H:328.28 | ALMA-L:327.82 | Phase:SIDEWAYS
+[9:30:05 PM] TrendSlope: -0.0347
+[9:45:05 PM] Candle Time: 9:45:05 PM
+[9:45:05 PM] Price:328 | ALMA-H:328.29 | ALMA-L:327.79 | Phase:SIDEWAYS
+[9:45:05 PM] TrendSlope: -0.0383
+[10:00:05 PM] Candle Time: 10:00:05 PM
+[10:00:05 PM] Price:328.5 | ALMA-H:328.29 | ALMA-L:327.78 | Phase:SIDEWAYS
+[10:00:05 PM] TrendSlope: -0.0073
+[10:00:05 PM] ENTER LONG 1 LOT @ 328.5
+[10:15:06 PM] Candle Time: 10:15:05 PM
+[10:15:06 PM] Price:328.3 | ALMA-H:328.32 | ALMA-L:327.85 | Phase:SIDEWAYS
+[10:15:06 PM] TrendSlope: -0.0027
+[10:15:06 PM] EXIT LONG 1 LOT @ 328.3
+[10:15:06 PM] TradePnL: -1000 | SessionPnL: -3250
+[10:30:05 PM] Candle Time: 10:30:05 PM
+[10:30:05 PM] Price:328.65 | ALMA-H:328.36 | ALMA-L:327.84 | Phase:UPTREND
+[10:30:05 PM] TrendSlope: 0.0116
+[10:30:05 PM] ENTER LONG 1 LOT @ 328.65
+[10:45:06 PM] Candle Time: 10:45:05 PM
+[10:45:06 PM] Price:327.95 | ALMA-H:328.40 | ALMA-L:327.91 | Phase:SIDEWAYS
+[10:45:06 PM] TrendSlope: -0.0367
+[10:45:06 PM] EXIT LONG 1 LOT @ 327.95
+[10:45:06 PM] TradePnL: -3500 | SessionPnL: -6750
+[10:45:06 PM] 🛑 MAX DRAWDOWN HIT — ENGINE STOPPED
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔑 add access controls to secrets: https://dotenvx.com/ops
+[10:45:06 PM] ====================================
+[10:45:06 PM] TAlgo Engine Started
+[10:45:06 PM] Mode: PAPER
+[10:45:06 PM] Time: 2/25/2026, 10:45:06 PM
+[10:45:06 PM] Status: Market ACTIVE
+[10:45:06 PM] ====================================
+[11:00:00 PM] ===== SESSION CLOSED =====
+[11:00:00 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔑 add access controls to secrets: https://dotenvx.com/ops
+[11:00:01 PM] ====================================
+[11:00:01 PM] TAlgo Engine Started
+[11:00:01 PM] Mode: PAPER
+[11:00:01 PM] Time: 2/25/2026, 11:00:01 PM
+[11:00:01 PM] Status: After market hours
+[11:00:01 PM] ====================================
+[11:00:02 PM] ===== SESSION CLOSED =====
+[11:00:02 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ✅ audit secrets and track compliance: https://dotenvx.com/ops
+[11:00:03 PM] ====================================
+[11:00:03 PM] TAlgo Engine Started
+[11:00:03 PM] Mode: PAPER
+[11:00:03 PM] Time: 2/25/2026, 11:00:03 PM
+[11:00:03 PM] Status: After market hours
+[11:00:03 PM] ====================================
+[11:00:04 PM] ===== SESSION CLOSED =====
+[11:00:04 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[11:00:04 PM] ====================================
+[11:00:04 PM] TAlgo Engine Started
+[11:00:04 PM] Mode: PAPER
+[11:00:04 PM] Time: 2/25/2026, 11:00:04 PM
+[11:00:04 PM] Status: After market hours
+[11:00:04 PM] ====================================
+[11:00:05 PM] ===== SESSION CLOSED =====
+[11:00:05 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔄 add secrets lifecycle management: https://dotenvx.com/ops
+[11:00:06 PM] ====================================
+[11:00:06 PM] TAlgo Engine Started
+[11:00:06 PM] Mode: PAPER
+[11:00:06 PM] Time: 2/25/2026, 11:00:06 PM
+[11:00:06 PM] Status: After market hours
+[11:00:06 PM] ====================================
+[11:00:07 PM] ===== SESSION CLOSED =====
+[11:00:07 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 👥 sync secrets across teammates & machines: https://dotenvx.com/ops
+[11:00:07 PM] ====================================
+[11:00:07 PM] TAlgo Engine Started
+[11:00:07 PM] Mode: PAPER
+[11:00:07 PM] Time: 2/25/2026, 11:00:07 PM
+[11:00:07 PM] Status: After market hours
+[11:00:07 PM] ====================================
+[11:00:08 PM] ===== SESSION CLOSED =====
+[11:00:08 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[11:00:09 PM] ====================================
+[11:00:09 PM] TAlgo Engine Started
+[11:00:09 PM] Mode: PAPER
+[11:00:09 PM] Time: 2/25/2026, 11:00:09 PM
+[11:00:09 PM] Status: After market hours
+[11:00:09 PM] ====================================
+[11:00:10 PM] ===== SESSION CLOSED =====
+[11:00:10 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[11:00:10 PM] ====================================
+[11:00:10 PM] TAlgo Engine Started
+[11:00:10 PM] Mode: PAPER
+[11:00:10 PM] Time: 2/25/2026, 11:00:10 PM
+[11:00:10 PM] Status: After market hours
+[11:00:10 PM] ====================================
+[11:00:11 PM] ===== SESSION CLOSED =====
+[11:00:11 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ✅ audit secrets and track compliance: https://dotenvx.com/ops
+[11:00:12 PM] ====================================
+[11:00:12 PM] TAlgo Engine Started
+[11:00:12 PM] Mode: PAPER
+[11:00:12 PM] Time: 2/25/2026, 11:00:12 PM
+[11:00:12 PM] Status: After market hours
+[11:00:12 PM] ====================================
+[11:00:13 PM] ===== SESSION CLOSED =====
+[11:00:13 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[11:00:13 PM] ====================================
+[11:00:13 PM] TAlgo Engine Started
+[11:00:13 PM] Mode: PAPER
+[11:00:13 PM] Time: 2/25/2026, 11:00:13 PM
+[11:00:13 PM] Status: After market hours
+[11:00:13 PM] ====================================
+[11:00:14 PM] ===== SESSION CLOSED =====
+[11:00:14 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[11:00:15 PM] ====================================
+[11:00:15 PM] TAlgo Engine Started
+[11:00:15 PM] Mode: PAPER
+[11:00:15 PM] Time: 2/25/2026, 11:00:15 PM
+[11:00:15 PM] Status: After market hours
+[11:00:15 PM] ====================================
+[11:00:16 PM] ===== SESSION CLOSED =====
+[11:00:16 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[11:00:16 PM] ====================================
+[11:00:16 PM] TAlgo Engine Started
+[11:00:16 PM] Mode: PAPER
+[11:00:16 PM] Time: 2/25/2026, 11:00:16 PM
+[11:00:16 PM] Status: After market hours
+[11:00:16 PM] ====================================
+[11:00:17 PM] ===== SESSION CLOSED =====
+[11:00:17 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[11:00:18 PM] ====================================
+[11:00:18 PM] TAlgo Engine Started
+[11:00:18 PM] Mode: PAPER
+[11:00:18 PM] Time: 2/25/2026, 11:00:18 PM
+[11:00:18 PM] Status: After market hours
+[11:00:18 PM] ====================================
+[11:00:19 PM] ===== SESSION CLOSED =====
+[11:00:19 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[11:00:20 PM] ====================================
+[11:00:20 PM] TAlgo Engine Started
+[11:00:20 PM] Mode: PAPER
+[11:00:20 PM] Time: 2/25/2026, 11:00:20 PM
+[11:00:20 PM] Status: After market hours
+[11:00:20 PM] ====================================
+[11:00:21 PM] ===== SESSION CLOSED =====
+[11:00:21 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[11:00:21 PM] ====================================
+[11:00:21 PM] TAlgo Engine Started
+[11:00:21 PM] Mode: PAPER
+[11:00:21 PM] Time: 2/25/2026, 11:00:21 PM
+[11:00:21 PM] Status: After market hours
+[11:00:21 PM] ====================================
+[11:00:22 PM] ===== SESSION CLOSED =====
+[11:00:22 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[11:00:23 PM] ====================================
+[11:00:23 PM] TAlgo Engine Started
+[11:00:23 PM] Mode: PAPER
+[11:00:23 PM] Time: 2/25/2026, 11:00:23 PM
+[11:00:23 PM] Status: After market hours
+[11:00:23 PM] ====================================
+[11:00:24 PM] ===== SESSION CLOSED =====
+[11:00:24 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[11:00:24 PM] ====================================
+[11:00:24 PM] TAlgo Engine Started
+[11:00:24 PM] Mode: PAPER
+[11:00:24 PM] Time: 2/25/2026, 11:00:24 PM
+[11:00:24 PM] Status: After market hours
+[11:00:24 PM] ====================================
+[11:00:25 PM] ===== SESSION CLOSED =====
+[11:00:25 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[11:00:26 PM] ====================================
+[11:00:26 PM] TAlgo Engine Started
+[11:00:26 PM] Mode: PAPER
+[11:00:26 PM] Time: 2/25/2026, 11:00:26 PM
+[11:00:26 PM] Status: After market hours
+[11:00:26 PM] ====================================
+[11:00:27 PM] ===== SESSION CLOSED =====
+[11:00:27 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 📡 add observability to secrets: https://dotenvx.com/ops
+[11:00:27 PM] ====================================
+[11:00:27 PM] TAlgo Engine Started
+[11:00:27 PM] Mode: PAPER
+[11:00:27 PM] Time: 2/25/2026, 11:00:27 PM
+[11:00:27 PM] Status: After market hours
+[11:00:27 PM] ====================================
+[11:00:28 PM] ===== SESSION CLOSED =====
+[11:00:28 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔄 add secrets lifecycle management: https://dotenvx.com/ops
+[11:00:29 PM] ====================================
+[11:00:29 PM] TAlgo Engine Started
+[11:00:29 PM] Mode: PAPER
+[11:00:29 PM] Time: 2/25/2026, 11:00:29 PM
+[11:00:29 PM] Status: After market hours
+[11:00:29 PM] ====================================
+[11:00:30 PM] ===== SESSION CLOSED =====
+[11:00:30 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 📡 add observability to secrets: https://dotenvx.com/ops
+[11:00:30 PM] ====================================
+[11:00:30 PM] TAlgo Engine Started
+[11:00:30 PM] Mode: PAPER
+[11:00:30 PM] Time: 2/25/2026, 11:00:30 PM
+[11:00:30 PM] Status: After market hours
+[11:00:30 PM] ====================================
+[11:00:31 PM] ===== SESSION CLOSED =====
+[11:00:31 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[11:00:32 PM] ====================================
+[11:00:32 PM] TAlgo Engine Started
+[11:00:32 PM] Mode: PAPER
+[11:00:32 PM] Time: 2/25/2026, 11:00:32 PM
+[11:00:32 PM] Status: After market hours
+[11:00:32 PM] ====================================
+[11:00:33 PM] ===== SESSION CLOSED =====
+[11:00:33 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[11:00:34 PM] ====================================
+[11:00:34 PM] TAlgo Engine Started
+[11:00:34 PM] Mode: PAPER
+[11:00:34 PM] Time: 2/25/2026, 11:00:34 PM
+[11:00:34 PM] Status: After market hours
+[11:00:34 PM] ====================================
+[11:00:35 PM] ===== SESSION CLOSED =====
+[11:00:35 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔑 add access controls to secrets: https://dotenvx.com/ops
+[11:00:35 PM] ====================================
+[11:00:35 PM] TAlgo Engine Started
+[11:00:35 PM] Mode: PAPER
+[11:00:35 PM] Time: 2/25/2026, 11:00:35 PM
+[11:00:35 PM] Status: After market hours
+[11:00:35 PM] ====================================
+[11:00:36 PM] ===== SESSION CLOSED =====
+[11:00:36 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[11:00:37 PM] ====================================
+[11:00:37 PM] TAlgo Engine Started
+[11:00:37 PM] Mode: PAPER
+[11:00:37 PM] Time: 2/25/2026, 11:00:37 PM
+[11:00:37 PM] Status: After market hours
+[11:00:37 PM] ====================================
+[11:00:38 PM] ===== SESSION CLOSED =====
+[11:00:38 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[11:00:38 PM] ====================================
+[11:00:38 PM] TAlgo Engine Started
+[11:00:38 PM] Mode: PAPER
+[11:00:38 PM] Time: 2/25/2026, 11:00:38 PM
+[11:00:38 PM] Status: After market hours
+[11:00:38 PM] ====================================
+[11:00:39 PM] ===== SESSION CLOSED =====
+[11:00:39 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[11:00:40 PM] ====================================
+[11:00:40 PM] TAlgo Engine Started
+[11:00:40 PM] Mode: PAPER
+[11:00:40 PM] Time: 2/25/2026, 11:00:40 PM
+[11:00:40 PM] Status: After market hours
+[11:00:40 PM] ====================================
+[11:00:41 PM] ===== SESSION CLOSED =====
+[11:00:41 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[11:00:41 PM] ====================================
+[11:00:41 PM] TAlgo Engine Started
+[11:00:41 PM] Mode: PAPER
+[11:00:41 PM] Time: 2/25/2026, 11:00:41 PM
+[11:00:41 PM] Status: After market hours
+[11:00:41 PM] ====================================
+[11:00:42 PM] ===== SESSION CLOSED =====
+[11:00:42 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[11:00:43 PM] ====================================
+[11:00:43 PM] TAlgo Engine Started
+[11:00:43 PM] Mode: PAPER
+[11:00:43 PM] Time: 2/25/2026, 11:00:43 PM
+[11:00:43 PM] Status: After market hours
+[11:00:43 PM] ====================================
+[11:00:44 PM] ===== SESSION CLOSED =====
+[11:00:44 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[11:00:44 PM] ====================================
+[11:00:44 PM] TAlgo Engine Started
+[11:00:44 PM] Mode: PAPER
+[11:00:44 PM] Time: 2/25/2026, 11:00:44 PM
+[11:00:44 PM] Status: After market hours
+[11:00:44 PM] ====================================
+[11:00:45 PM] ===== SESSION CLOSED =====
+[11:00:45 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[11:00:46 PM] ====================================
+[11:00:46 PM] TAlgo Engine Started
+[11:00:46 PM] Mode: PAPER
+[11:00:46 PM] Time: 2/25/2026, 11:00:46 PM
+[11:00:46 PM] Status: After market hours
+[11:00:46 PM] ====================================
+[11:00:47 PM] ===== SESSION CLOSED =====
+[11:00:47 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[11:00:47 PM] ====================================
+[11:00:47 PM] TAlgo Engine Started
+[11:00:47 PM] Mode: PAPER
+[11:00:47 PM] Time: 2/25/2026, 11:00:47 PM
+[11:00:47 PM] Status: After market hours
+[11:00:47 PM] ====================================
+[11:00:48 PM] ===== SESSION CLOSED =====
+[11:00:48 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 👥 sync secrets across teammates & machines: https://dotenvx.com/ops
+[11:00:49 PM] ====================================
+[11:00:49 PM] TAlgo Engine Started
+[11:00:49 PM] Mode: PAPER
+[11:00:49 PM] Time: 2/25/2026, 11:00:49 PM
+[11:00:49 PM] Status: After market hours
+[11:00:49 PM] ====================================
+[11:00:50 PM] ===== SESSION CLOSED =====
+[11:00:50 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🗂️ backup and recover secrets: https://dotenvx.com/ops
+[11:00:50 PM] ====================================
+[11:00:50 PM] TAlgo Engine Started
+[11:00:50 PM] Mode: PAPER
+[11:00:50 PM] Time: 2/25/2026, 11:00:50 PM
+[11:00:50 PM] Status: After market hours
+[11:00:50 PM] ====================================
+[11:00:51 PM] ===== SESSION CLOSED =====
+[11:00:51 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 📡 add observability to secrets: https://dotenvx.com/ops
+[11:00:52 PM] ====================================
+[11:00:52 PM] TAlgo Engine Started
+[11:00:52 PM] Mode: PAPER
+[11:00:52 PM] Time: 2/25/2026, 11:00:52 PM
+[11:00:52 PM] Status: After market hours
+[11:00:52 PM] ====================================
+[11:00:53 PM] ===== SESSION CLOSED =====
+[11:00:53 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[11:00:53 PM] ====================================
+[11:00:53 PM] TAlgo Engine Started
+[11:00:53 PM] Mode: PAPER
+[11:00:53 PM] Time: 2/25/2026, 11:00:53 PM
+[11:00:53 PM] Status: After market hours
+[11:00:53 PM] ====================================
+[11:00:54 PM] ===== SESSION CLOSED =====
+[11:00:54 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[11:00:55 PM] ====================================
+[11:00:55 PM] TAlgo Engine Started
+[11:00:55 PM] Mode: PAPER
+[11:00:55 PM] Time: 2/25/2026, 11:00:55 PM
+[11:00:55 PM] Status: After market hours
+[11:00:55 PM] ====================================
+[11:00:56 PM] ===== SESSION CLOSED =====
+[11:00:56 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[11:00:57 PM] ====================================
+[11:00:57 PM] TAlgo Engine Started
+[11:00:57 PM] Mode: PAPER
+[11:00:57 PM] Time: 2/25/2026, 11:00:57 PM
+[11:00:57 PM] Status: After market hours
+[11:00:57 PM] ====================================
+[11:00:58 PM] ===== SESSION CLOSED =====
+[11:00:58 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔄 add secrets lifecycle management: https://dotenvx.com/ops
+[11:00:58 PM] ====================================
+[11:00:58 PM] TAlgo Engine Started
+[11:00:58 PM] Mode: PAPER
+[11:00:58 PM] Time: 2/25/2026, 11:00:58 PM
+[11:00:58 PM] Status: After market hours
+[11:00:58 PM] ====================================
+[11:00:59 PM] ===== SESSION CLOSED =====
+[11:00:59 PM] FINAL SESSION P&L: 0
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔄 add secrets lifecycle management: https://dotenvx.com/ops
+[11:01:00 PM] ====================================
+[11:01:00 PM] TAlgo Engine Started
+[11:01:00 PM] Mode: PAPER
+[11:01:00 PM] Time: 2/25/2026, 11:01:00 PM
+[11:01:00 PM] Status: After market hours
+[11:01:00 PM] ====================================
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[8:34:51 AM] ====================================
+[8:34:51 AM] TAlgo v11.2 ELITE PROP Started
+[8:34:51 AM] Time: 2/26/2026, 8:34:51 AM
+[8:34:51 AM] Status: Waiting for market session
+[8:34:51 AM] ====================================
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[8:36:06 AM] ====================================
+[8:36:06 AM] TAlgo v11.2 ELITE PROP Started
+[8:36:06 AM] Time: 2/26/2026, 8:36:06 AM
+[8:36:06 AM] Status: Waiting for market session
+[8:36:06 AM] ====================================
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+WebSocket Connected
