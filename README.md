@@ -1,4 +1,4 @@
-# TAlgo – Adaptive Trading Engine
+## TAlgo – Adaptive Trading Engine
 
 Markets evolve constantly.
 No trading strategy remains profitable forever.
