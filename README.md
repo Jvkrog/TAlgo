@@ -1,4 +1,17 @@
-# TAlgo
+# TAlgo – Adaptive Trading Engine
+
+Markets evolve constantly.
+No trading strategy remains profitable forever.
+
+Instead of searching for a permanent strategy,
+this engine is designed around a permanent framework.
+
+Strategies may fail.
+Market conditions may change.
+But the framework adapts, protects capital, and evolves.
+
+No strategy is permanent.
+Only the framework survives.
 
 ![Version](https://img.shields.io/badge/version-Elite-blue)
 ![Strategy](https://img.shields.io/badge/strategy-breakout-green)
