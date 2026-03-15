@@ -1,0 +1,14 @@
+{
+  "name": "talgo",
+  "version": "1.0.0",
+  "description": "Elite Hybrid Engine — NatGas Mini (MCX)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "kiteconnect": "^4.0.0",
+    "axios": "^1.6.0",
+    "dotenv": "^16.0.0"
+  }
+}
