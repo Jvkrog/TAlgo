@@ -2,7 +2,7 @@ Elite Hybrid Trading Engine
 
 //Overview
 
---> The Elite Hybrid Engine is the final evolution of the TAlgo system, designed as a structured trading architecture that separates strategy logic, risk management, and lifecycle control.
+--> The Elite Hybrid Engine is the evolution of the TAlgo system, designed as a structured trading architecture that separates strategy logic, risk management, and lifecycle control.
 
 --> The engine focuses on capital protection first, allowing the trading logic to operate only when market conditions and risk states permit.
 
