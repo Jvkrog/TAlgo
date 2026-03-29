@@ -13,8 +13,10 @@ But the framework adapts, protects capital, and evolves.
 No strategy is permanent.
 Only the framework survives.
 
-![Version](https://img.shields.io/badge/version-Elite-blue)
-![Strategy](https://img.shields.io/badge/strategy-breakout-green)
+> Final production logic implemented in v11 — ALMA Fast Color Engine
+
+![Version](https://img.shields.io/badge/version-v11-blue)
+![Strategy](https://img.shields.io/badge/ColorBasedDecision-green)
 ![Market](https://img.shields.io/badge/market-MCX-orange)
 ![Language](https://img.shields.io/badge/language-Node.js-yellow)
 
@@ -427,6 +429,27 @@ WAIT → PROBATION → CONFIRMED
 --> Structured decision phases improve discipline.
 
 ---
+v11 — ALMA Fast Decision Engine
+//Objective
+
+--> Reduce system to a single decisive signal
+
+//Logic
+
+-->ALMA Fast slope defines direction
+
+-->ALMA Band defines sideways
+
+//Outcome
+--> Cleaner signals
+
+--> No overtrading
+
+--> Better execution stability
+
+//Learning
+
+--> Simplicity beats complexity in live markets
 
 ## Strategy Evolution
 
