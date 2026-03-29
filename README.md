@@ -65,7 +65,7 @@ Design Goal: Consistent, explainable trading behavior
 ## Repository Structure
 
 PineScript/     → TradingView prototype scripts  
-versions/       → Evolution of the algorithm (v01 → v10)  
+versions/       → Evolution of the algorithm (v01 → v11)  
 README.md       → Project documentation
 
 ---
