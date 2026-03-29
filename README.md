@@ -18,7 +18,7 @@ Only the framework survives.
 ![Version](https://img.shields.io/badge/version-v11-blue)
 ![Strategy](https://img.shields.io/badge/strategy-ColorBasedDecision-leafgreen)
 ![Market](https://img.shields.io/badge/market-MCX-darkred)
-![Language](https://img.shields.io/badge/language-Node.js-lightgreen)
+![Language](https://img.shields.io/badge/language-Node.js-#00FF0C)
 
 Rule-based breakout trading engine developed through iterative algorithm research.
 
