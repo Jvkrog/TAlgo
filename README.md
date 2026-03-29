@@ -15,9 +15,9 @@ Only the framework survives.
 
 > Final production logic implemented in v11 — ALMA Fast Color Engine
 
-![Version](https://img.shields.io/badge/version-v11-blueish)
+![Version](https://img.shields.io/badge/version-v11-mediumdarkblue)
 ![Strategy](https://img.shields.io/badge/strategy-ColorBasedDecision-darkgreen)
-![Market](https://img.shields.io/badge/market-MCX-reddish)
+![Market](https://img.shields.io/badge/market-MCX-bloodred)
 ![Language](https://img.shields.io/badge/language-Node.js-leafgreen)
 
 Rule-based breakout trading engine developed through iterative algorithm research.
