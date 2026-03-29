@@ -1,5 +1,5 @@
 //@version=6
-indicator("TAlgo ", overlay=true, max_lines_count=500)
+indicator("TAlgo", overlay=true, max_lines_count=500)
 
 // ─── INPUTS ───────────────────────────────────────────────
 fast_len      = input.int(14,  "Fast ALMA",  minval=5)
