@@ -16,7 +16,7 @@ Only the framework survives.
 > Final production logic implemented in v11 — ALMA Fast Color Engine
 
 ![Version](https://img.shields.io/badge/version-v11-darkblue)
-![Strategy](https://img.shields.io/badge/strategy-ColorBasedDecision-green-red)
+![Strategy](https://img.shields.io/badge/strategy-ColorBasedDecision-lightgreen)
 ![Market](https://img.shields.io/badge/market-MCX-darkred)
 ![Language](https://img.shields.io/badge/language-Node.js-leafgreen)
 
