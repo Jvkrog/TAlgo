@@ -1,22 +1,70 @@
-//@version=5
-indicator("ALMA High-Low Band (Algo View)", overlay=true)
+//@version=6
+indicator("TAlgo ", overlay=true, max_lines_count=500)
 
-// Inputs (match algo)
-length = input.int(20, "ALMA Length")
-offset = input.float(0.85, "Offset")
-sigma  = input.float(6, "Sigma")
+// ─── INPUTS ───────────────────────────────────────────────
+fast_len      = input.int(14,  "Fast ALMA",  minval=5)
+band_len      = input.int(30,  "Band Length", minval=10)
+atr_len       = input.int(14,  "ATR Length")
 
-// ALMA on High & Low
-almaHigh = ta.alma(high, length, offset, sigma)
-almaLow  = ta.alma(low,  length, offset, sigma)
+offset        = input.float(0.85, "ALMA Offset")
+sigma         = input.float(6.0,  "ALMA Sigma")
 
-// Plot bands
-plot(almaHigh, color=color.orange, linewidth=2, title="ALMA High")
-plot(almaLow,  color=color.aqua,   linewidth=2, title="ALMA Low")
+compress_mult = input.float(0.70, "Compress Multiplier", step=0.05)   
+slope_mult    = input.float(0.025, "Slope Multiplier", step=0.005)    
 
-// Decision visualization (optional)
-buyCond  = close > almaHigh
-sellCond = close < almaLow
+// ─── HEIKIN ASHI ──────────────────────────────────────────
+ha_close = request.security(ticker.heikinashi(syminfo.tickerid), timeframe.period, close)
 
-plotshape(buyCond,  title="BUY",  style=shape.triangleup,   location=location.belowbar, color=color.green, size=size.tiny)
-plotshape(sellCond, title="SELL", style=shape.triangledown, location=location.abovebar, color=color.red,   size=size.tiny)
+// ─── ALMA CALCULATIONS ────────────────────────────────────
+fast = ta.alma(ha_close, fast_len, offset, sigma)
+
+// Band on raw high/low (more stable for sideways detection)
+high_band = ta.alma(high, band_len, offset, sigma)
+low_band  = ta.alma(low,  band_len, offset, sigma)
+band_width = high_band - low_band
+
+// ─── ATR & FILTERS ────────────────────────────────────────
+atr_val = ta.atr(atr_len)
+is_sideways = band_width < atr_val * compress_mult
+
+slope = fast - fast[1]
+strong_up   = slope > atr_val * slope_mult
+strong_down = slope < -atr_val * slope_mult
+
+// Breakout buffer — tuned for Zinc Mini volatility
+buffer = atr_val * 0.25
+
+above_band = close > high_band + buffer
+below_band = close < low_band  - buffer
+
+// ─── STATE ────────────────────────────────────────────────
+var int state = 0   // 1 = BULL, -1 = BEAR, 0 = NEUTRAL
+
+if is_sideways
+    state := 0
+else if strong_up and above_band
+    state := 1
+else if strong_down and below_band
+    state := -1
+else
+    state := state   // maintain last state during weak moves
+
+// ─── VISUALS ──────────────────────────────────────────────
+fast_color = state == 1 ? color.lime : state == -1 ? color.red : color.gray
+
+plot(fast,      "Fast ALMA", color=fast_color, linewidth=3)
+plot(high_band, "Band High", color=color.orange, linewidth=1)
+plot(low_band,  "Band Low",  color=color.blue,   linewidth=1)
+
+bgcolor(is_sideways ? color.new(color.gray, 85) : na, title="Sideways Background")
+
+// ─── SIGNALS ──────────────────────────────────────────────
+long_entry  = state == 1 and state[1] != 1
+short_entry = state == -1 and state[1] != -1
+
+plotshape(long_entry,  title="Long Entry",  location=location.belowbar, color=color.lime, style=shape.triangleup,   size=size.small)
+plotshape(short_entry, title="Short Entry", location=location.abovebar, color=color.red,  style=shape.triangledown, size=size.small)
+
+// Alerts
+alertcondition(long_entry,  "Long Entry",  "TAlgo : LONG Entry Signal")
+alertcondition(short_entry, "Short Entry", "TAlgo : SHORT Entry Signal")
