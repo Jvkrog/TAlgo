@@ -68,9 +68,9 @@ Detailed system documentation:
 ---
 
 ## Repository Structure
-
+```
 TAlgo/ ├── docs/ │   ├── kite-integration.md │   ├── architecture.md │   └── strategy.md ├── versions/       → Algorithm evolution (v01 → v11) ├── PineScript/     → TradingView prototypes └── README.md
-
+```
 ---
 
 ## Algorithm Evolution
@@ -246,7 +246,7 @@ The goal is not just profitability, but consistent and explainable decision-maki
 
 ---
 
-### Research Insights
+# Research Insights
 
 ## Market Noise
 ```
