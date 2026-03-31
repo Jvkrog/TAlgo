@@ -75,6 +75,10 @@ TAlgo/
  |   ├── architecture.md │
  |   └── strategy.md ├
  |
+ |── logs/
+ |
+ |    → Execution logs for debugging, analysis, and explainability
+ |    
  |── versions/
  |
  |     → Algorithm evolution (v01 → v11)
