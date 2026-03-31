@@ -1,6 +1,6 @@
 # TAlgo — Adaptive Real-Time Trading Engine
 
-> Real-time trading system built on an event-driven architecture with deterministic decision logic.
+Real-time trading system built on an event-driven architecture with deterministic decision logic.
 
 Markets evolve constantly.  
 No trading strategy remains profitable forever.
@@ -8,16 +8,17 @@ No trading strategy remains profitable forever.
 TAlgo is not built around a fixed strategy —  
 it is built around a **permanent adaptive framework**.
 
-> Strategies may fail. The framework survives.
+Strategies may fail. The framework survives.
+
 
 > Final production logic implemented in v11 — ALMA Fast Color Engine
-```
+
 ![Version](https://img.shields.io/badge/version-v11-skyblue)
 ![Strategy](https://img.shields.io/badge/strategy-ColorBasedDecision-white)
 ![Market](https://img.shields.io/badge/market-MCX-darkred)
 ![Language](https://img.shields.io/badge/language-Node.js-lightgreen)
-```
-Rule-based breakout trading engine developed through iterative algorithm research.
+
+
 
 ---
 
@@ -284,6 +285,7 @@ Solution: bandwidth filters
 System Flow
 
 flowchart TD
+
 A[Market Data] --> B[Candle Processing]
 B --> C[Indicators]
 C --> D[Decision Engine]
@@ -297,6 +299,7 @@ F --> G[Logs]
 Decision States
 
 flowchart TD
+
 A[WAIT] --> B[PROBATION]
 B --> C[CONFIRMED]
 B --> A
