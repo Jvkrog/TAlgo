@@ -67,9 +67,9 @@ The system follows a modular pipeline architecture.
 ---
 
 ## Data Flow
-
+```
 Tick → onTick() → Candle → OHLC → Indicators → Signal → Order
-
+```
 ### Step-by-step
 ```
 1. WebSocket streams live ticks
