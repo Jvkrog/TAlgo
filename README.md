@@ -74,10 +74,13 @@ TAlgo/
  |   ├── kite-integration.md │
  |   ├── architecture.md │
  |   └── strategy.md ├
+ |
  |── versions/
-   → Algorithm evolution (v01 → v11)
+ |     → Algorithm evolution (v01 → v11)
+ |
  ├── PineScript/
-   → TradingView prototypes
+ |     → TradingView prototypes
+ |
  └── README.md
 ```
 ---
