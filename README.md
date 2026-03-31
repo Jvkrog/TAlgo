@@ -327,7 +327,7 @@ C --> A
 
 ---
 
-## Final Summary
+# Final Summary
 ```
 ALMA → Filter
 EMA  → Bias
