@@ -9,6 +9,8 @@ The system follows a modular pipeline architecture.
 
 ---
 
+
+
 ## High-Level Architecture
 
 ┌────────────────────┐
@@ -56,6 +58,17 @@ The system follows a modular pipeline architecture.
             ┌────────────────────┐
             │   Kite REST API    │
             └────────────────────┘
+
+
+
+
+
+
+
+
+
+
+
 
 ---
 
@@ -124,7 +137,7 @@ Time-synchronized using exchange timestamps
 
 ---
 
-3. OHLC Storage
+### 3. OHLC Storage
 
 Stores structured candle data for fast computation.
 ```javascript
