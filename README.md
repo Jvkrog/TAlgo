@@ -184,11 +184,12 @@ WAIT → PROBE → ATTACK
 - Volatility confirms intent
 ```
 ---
-```
+
 ### v10 — Structured Breakout
 ```
 WAIT → PROBATION → CONFIRMED
-```
+
+
 **Learning**
 - Structured phases improve discipline
 ```
@@ -287,7 +288,6 @@ The goal is not just profitability, but consistent and explainable decision-maki
 
 ## System Flow
 ```
-flowchart LR
 A[Market Data] --> B[Candle Processing]
 B --> C[Indicators]
 C --> D[Decision Engine]
@@ -301,7 +301,6 @@ F --> G[Logs]
 ## Decision States
 
 ```
-
 A[WAIT] --> B[PROBATION]
 B --> C[CONFIRMED]
 B --> A
