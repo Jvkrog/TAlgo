@@ -1,52 +1,74 @@
-
+```md
 # Kite Integration — TAlgo
+
+> Production-oriented Kite API integration with real-time data processing and deterministic execution pipeline.
+
+---
 
 ## Overview
 
-This document explains how TAlgo integrates with Kite Connect API to fetch market data, build OHLC candles, compute indicators, and execute trades.
+This document explains how TAlgo integrates with Kite Connect API to fetch market data, construct OHLC candles, compute indicators, and execute trades.
 
-The system is designed as a low-latency, event-driven pipeline.
+The system follows an event-driven architecture optimized for low latency.
 
+```
 Kite WebSocket → Tick Data → Candle Builder → Indicators → Strategy → Execution
+```
 
 ---
 
 ## 1. Authentication
 
-TAlgo authenticates using API key and access token.
+TAlgo initializes both REST and WebSocket clients using secure environment variables.
 
 ```javascript
 const { KiteConnect, KiteTicker } = require("kiteconnect");
 
+// REST client for historical data and order execution
 const kc = new KiteConnect({
   api_key: process.env.KITE_API_KEY
 });
 
+// Required for authenticated API access
 kc.setAccessToken(process.env.KITE_ACCESS_TOKEN);
 
+// WebSocket client for live tick streaming
 const ticker = new KiteTicker({
   api_key: process.env.KITE_API_KEY,
   access_token: process.env.KITE_ACCESS_TOKEN
 });
+```
 
+Why this matters:  
+This enables secure communication with Kite APIs and separates REST (orders/data) from WebSocket (live ticks).
 
 ---
 
-2. Historical Data (Warmup)
+## 2. Historical Data (Warmup)
 
-Used to initialize indicator values before live execution.
+Initial historical candles are fetched to bootstrap indicator calculations before live trading begins.
 
+```javascript
 async function loadHistorical(instrument, from, to) {
-  return await kc.getHistoricalData(instrument, from, to, "60minute");
+  try {
+    return await kc.getHistoricalData(instrument, from, to, "60minute");
+  } catch (err) {
+    console.error("Historical data fetch failed:", err);
+    return [];
+  }
 }
+```
 
+Why this matters:  
+Indicators like EMA and ALMA require previous data. Without warmup, early signals would be invalid.
 
 ---
 
-3. OHLC Data Structure
+## 3. OHLC Data Structure
 
-Candles are stored in arrays for efficient computation.
+All candle data is stored in arrays for fast computation and direct indexing.
 
+```javascript
 const ohlc = {
   time: [],
   open: [],
@@ -54,14 +76,18 @@ const ohlc = {
   low: [],
   close: []
 };
+```
 
+Why this matters:  
+Array-based storage enables efficient indicator calculations and avoids overhead from complex data structures.
 
 ---
 
-4. WebSocket Connection
+## 4. WebSocket Connection
 
-Real-time data is received using Kite WebSocket.
+Live market data is received using Kite WebSocket.
 
+```javascript
 ticker.on("connect", () => {
   ticker.subscribe([738561]);
   ticker.setMode(ticker.modeFull, [738561]);
@@ -71,14 +97,18 @@ ticker.on("ticks", (ticks) => {
   const tick = ticks[0];
   onTick(tick.last_price, tick.exchange_timestamp);
 });
+```
 
+Why this matters:  
+WebSocket provides real-time streaming, which is critical for low-latency trading systems.
 
 ---
 
-5. Candle Construction (1 Hour)
+## 5. Candle Construction (1 Hour)
 
-Ticks are grouped into 1-hour candles using time-bucket logic.
+Ticks are aggregated into 1-hour OHLC candles using time-bucket logic.
 
+```javascript
 let currentCandle = null;
 let currentBucket = null;
 
@@ -93,12 +123,7 @@ function onTick(price, ts) {
 
   if (!currentCandle) {
     currentBucket = bucket;
-    currentCandle = {
-      open: price,
-      high: price,
-      low: price,
-      close: price
-    };
+    currentCandle = { open: price, high: price, low: price, close: price };
     return;
   }
 
@@ -108,49 +133,50 @@ function onTick(price, ts) {
     currentCandle.close = price;
   } else {
     pushCandle(currentCandle);
-
     currentBucket = bucket;
-    currentCandle = {
-      open: price,
-      high: price,
-      low: price,
-      close: price
-    };
+    currentCandle = { open: price, high: price, low: price, close: price };
   }
 }
+```
 
+Why this matters:  
+Ensures accurate OHLC candle formation from tick-level data.
 
 ---
 
-6. Storing Candles
+## 6. Storing Candles
 
-Closed candles are pushed into OHLC arrays.
-
+```javascript
 function pushCandle(c) {
   ohlc.open.push(c.open);
   ohlc.high.push(c.high);
   ohlc.low.push(c.low);
   ohlc.close.push(c.close);
 }
+```
 
+Why this matters:  
+Forms the base for indicator calculations.
 
 ---
 
-7. Indicators
+## 7. Indicators
 
-EMA
+### EMA
 
+```javascript
 function EMA(values, period) {
   const k = 2 / (period + 1);
   let ema = values[0];
   return values.map(v => (ema = v * k + ema * (1 - k)));
 }
-
+```
 
 ---
 
-HMA
+### HMA
 
+```javascript
 function WMA(values, period) {
   const denom = (period * (period + 1)) / 2;
 
@@ -158,32 +184,19 @@ function WMA(values, period) {
     if (i < period - 1) return null;
 
     let sum = 0, w = 1;
-
     for (let j = i - period + 1; j <= i; j++) {
       sum += values[j] * w++;
     }
-
     return sum / denom;
   });
 }
-
-function HMA(values, period) {
-  const half = Math.floor(period / 2);
-  const sqrt = Math.floor(Math.sqrt(period));
-
-  const wma1 = WMA(values, half);
-  const wma2 = WMA(values, period);
-
-  const diff = wma1.map((v, i) => 2 * v - (wma2[i] || 0));
-
-  return WMA(diff, sqrt);
-}
-
+```
 
 ---
 
-ALMA
+### ALMA
 
+```javascript
 function ALMA(values, period = 9, offset = 0.85, sigma = 6) {
   const m = offset * (period - 1);
   const s = period / sigma;
@@ -202,29 +215,29 @@ function ALMA(values, period = 9, offset = 0.85, sigma = 6) {
     return sum / norm;
   });
 }
-
+```
 
 ---
 
-8. Strategy Flow
+## 8. Strategy Flow
 
-After each candle close:
-
+```
 OHLC → Indicators → Signal → Execution
+```
 
-Example:
-
+```javascript
 function signal(close, ema, hma, alma) {
   if (close > ema && hma > alma) return "BUY";
   if (close < ema && hma < alma) return "SELL";
   return "NO_TRADE";
 }
-
+```
 
 ---
 
-9. Order Execution
+## 9. Order Execution
 
+```javascript
 async function placeOrder(symbol, type) {
   return await kc.placeOrder("regular", {
     exchange: "MCX",
@@ -235,15 +248,16 @@ async function placeOrder(symbol, type) {
     order_type: "MARKET"
   });
 }
-
+```
 
 ---
 
-10. Summary
+## 10. Summary
 
-Authenticate → Historical Data → WebSocket → Tick → Candle → Indicators → Strategy → Orders
-
-TAlgo is designed for low latency, deterministic execution, and real-time trading conditions.
+```
+Authenticate → Historical → WebSocket → Tick → Candle → Indicators → Strategy → Orders
+```
+```
 
 ---
 
