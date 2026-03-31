@@ -15,7 +15,7 @@ Kite WebSocket → Tick Data → Candle Builder → Indicators → Strategy → 
 
 TAlgo authenticates using API key and access token.
 
-
+```javascript
 const { KiteConnect, KiteTicker } = require("kiteconnect");
 
 const kc = new KiteConnect({
@@ -31,7 +31,8 @@ const ticker = new KiteTicker({
 
 
 ---
-2.Historical Data (Warmup)
+
+2. Historical Data (Warmup)
 
 Used to initialize indicator values before live execution.
 
@@ -41,7 +42,8 @@ async function loadHistorical(instrument, from, to) {
 
 
 ---
-3.OHLC Data Structure
+
+3. OHLC Data Structure
 
 Candles are stored in arrays for efficient computation.
 
@@ -55,7 +57,8 @@ const ohlc = {
 
 
 ---
-4.WebSocket Connection
+
+4. WebSocket Connection
 
 Real-time data is received using Kite WebSocket.
 
@@ -71,7 +74,8 @@ ticker.on("ticks", (ticks) => {
 
 
 ---
-5.Candle Construction (1 Hour)
+
+5. Candle Construction (1 Hour)
 
 Ticks are grouped into 1-hour candles using time-bucket logic.
 
@@ -86,6 +90,7 @@ function getHourBucket(ts) {
 
 function onTick(price, ts) {
   const bucket = getHourBucket(ts);
+
   if (!currentCandle) {
     currentBucket = bucket;
     currentCandle = {
@@ -103,6 +108,7 @@ function onTick(price, ts) {
     currentCandle.close = price;
   } else {
     pushCandle(currentCandle);
+
     currentBucket = bucket;
     currentCandle = {
       open: price,
@@ -116,7 +122,7 @@ function onTick(price, ts) {
 
 ---
 
-6.Storing Candles
+6. Storing Candles
 
 Closed candles are pushed into OHLC arrays.
 
@@ -129,7 +135,8 @@ function pushCandle(c) {
 
 
 ---
-7.Indicators
+
+7. Indicators
 
 EMA
 
@@ -149,10 +156,13 @@ function WMA(values, period) {
 
   return values.map((_, i) => {
     if (i < period - 1) return null;
+
     let sum = 0, w = 1;
+
     for (let j = i - period + 1; j <= i; j++) {
       sum += values[j] * w++;
     }
+
     return sum / denom;
   });
 }
@@ -180,12 +190,15 @@ function ALMA(values, period = 9, offset = 0.85, sigma = 6) {
 
   return values.map((_, i) => {
     if (i < period - 1) return null;
-   let sum = 0, norm = 0;
+
+    let sum = 0, norm = 0;
+
     for (let j = 0; j < period; j++) {
       const w = Math.exp(-((j - m) ** 2) / (2 * s * s));
       sum += values[i - period + 1 + j] * w;
       norm += w;
     }
+
     return sum / norm;
   });
 }
@@ -193,7 +206,7 @@ function ALMA(values, period = 9, offset = 0.85, sigma = 6) {
 
 ---
 
-8.Strategy Flow
+8. Strategy Flow
 
 After each candle close:
 
@@ -210,9 +223,7 @@ function signal(close, ema, hma, alma) {
 
 ---
 
-9.Order Execution
-
-Orders are placed using Kite REST API.
+9. Order Execution
 
 async function placeOrder(symbol, type) {
   return await kc.placeOrder("regular", {
@@ -227,13 +238,12 @@ async function placeOrder(symbol, type) {
 
 
 ---
-10.Summary
 
-TAlgo integrates Kite API as follows:
+10. Summary
 
-Authenticate → Historical Data → WebSocket → Tick Processing → Candle → Indicators → Strategy → Orders
+Authenticate → Historical Data → WebSocket → Tick → Candle → Indicators → Strategy → Orders
 
-The system is designed for low latency, deterministic execution, and real-time trading conditions.
+TAlgo is designed for low latency, deterministic execution, and real-time trading conditions.
 
 ---
 
