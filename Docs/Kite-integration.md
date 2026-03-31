@@ -41,7 +41,7 @@ async function loadHistorical(instrument, from, to) {
 
 
 ---
-3. OHLC Data Structure
+3.OHLC Data Structure
 
 Candles are stored in arrays for efficient computation.
 
@@ -116,7 +116,7 @@ function onTick(price, ts) {
 
 ---
 
-6. Storing Candles
+6.Storing Candles
 
 Closed candles are pushed into OHLC arrays.
 
@@ -129,8 +129,7 @@ function pushCandle(c) {
 
 
 ---
-
-7. Indicators
+7.Indicators
 
 EMA
 
@@ -194,7 +193,7 @@ function ALMA(values, period = 9, offset = 0.85, sigma = 6) {
 
 ---
 
-8. Strategy Flow
+8.Strategy Flow
 
 After each candle close:
 
@@ -211,7 +210,7 @@ function signal(close, ema, hma, alma) {
 
 ---
 
-9. Order Execution
+9.Order Execution
 
 Orders are placed using Kite REST API.
 
@@ -228,8 +227,7 @@ async function placeOrder(symbol, type) {
 
 
 ---
-
-10. Summary
+10.Summary
 
 TAlgo integrates Kite API as follows:
 
