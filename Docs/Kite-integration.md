@@ -1,8 +1,8 @@
-```md
+
 # Kite Integration — TAlgo
-
+```
 > Production-oriented Kite API integration with real-time data processing and deterministic execution pipeline.
-
+```
 ---
 
 ## Overview
