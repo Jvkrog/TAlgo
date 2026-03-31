@@ -257,7 +257,7 @@ async function placeOrder(symbol, type) {
 ```
 Authenticate → Historical → WebSocket → Tick → Candle → Indicators → Strategy → Orders
 ```
-```
 
----
+
+
 
