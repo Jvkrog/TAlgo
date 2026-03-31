@@ -12,6 +12,7 @@ The system follows a modular pipeline architecture.
 
 
 ## High-Level Architecture
+The system processes real-time data through the following pipeline:
 ```
 ┌────────────────────┐
             │   Kite WebSocket   │
@@ -86,9 +87,9 @@ Tick → onTick() → Candle → OHLC → Indicators → Signal → Order
 
 ### 1. Tick Handler
 ```
--->Receives live ticks
--->Extracts price and timestamp
--->Forwards to candle builder
+- Receives live ticks
+- Extracts price and timestamp
+- Forwards to candle builder
 ```
 ```javascript
 function onTick(price, ts) {
@@ -96,7 +97,7 @@ function onTick(price, ts) {
   // route to candle builder
 }
 ```
-Design Goal
+Design Goals
 ```
 Must be extremely fast
 
@@ -107,7 +108,7 @@ No blocking operations
 
 ### 2. Candle Builder
 ```
--->Responsible for converting ticks into OHLC candles.
+- Responsible for converting ticks into OHLC candles.
 ```
 ```javascript
 function onTick(price, ts) {
@@ -121,7 +122,7 @@ function onTick(price, ts) {
   currentCandle.close = price;
 }
 ```
-Design Goal
+Design Goals
 ```
 Accurate OHLC construction
 
@@ -133,7 +134,7 @@ Time-synchronized using exchange timestamps
 
 ### 3. OHLC Storage
 ```
--->Stores structured candle data for fast computation.
+- Stores structured candle data for fast computation.
 ```
 ```javascript
 const ohlc = {
@@ -143,7 +144,7 @@ const ohlc = {
   close: []
 };
 ```
-Design Goal
+Design Goals
 ```
 Fast array access
 
@@ -154,14 +155,14 @@ Optimized for indicator calculations
 
 ### 4. Indicator Engine
 ```
--->Computes EMA, HMA, ALMA on OHLC arrays.
+- Computes EMA, HMA, ALMA on OHLC arrays.
 ```
 ```javascript
 const ema = EMA(ohlc.close, 20);
 const hma = HMA(ohlc.close, 16);
 const alma = ALMA(ohlc.close, 9);
 ```
-Design Goal
+Design Goals
 ```
 Efficient computation
 
@@ -172,7 +173,9 @@ Minimal recalculation overhead
 
 ### 5. Strategy Engine
 ```
--->Implements decision logic based on indicator outputs.
+- Implements decision logic based on indicator outputs.
+- Combines multiple indicators into a structured decision layer
+- Filters noise and avoids false signals
 ```
 ```javascript
 function signal(close, ema, hma, alma) {
@@ -181,7 +184,7 @@ function signal(close, ema, hma, alma) {
   return "NO_TRADE";
 }
 ```
-Design Goal
+Design Goals
 ```
 Deterministic decisions
 
@@ -191,7 +194,7 @@ Avoid noise-based trades
 
 ### 6. Execution Engine
 ```
--->Handles order placement through Kite API.
+- Handles order placement through Kite API.
 ```
 ```javascript
 async function placeOrder(symbol, type) {
@@ -205,7 +208,7 @@ async function placeOrder(symbol, type) {
   });
 }
 ```
-Design Goal
+Design Goals
 ```
 Reliable execution
 
@@ -215,67 +218,67 @@ Minimal delay from signal to order
 
 ### System Characteristics
 ```
--->Event-Driven Architecture
+- Event-Driven Architecture
 
--->No polling
+- No polling
 
--->Reacts instantly to incoming data
+- Reacts instantly to incoming data
 ```
 ---
 
 ### Low Latency
 ```
--->WebSocket-based data ingestion
+- WebSocket-based data ingestion
 
--->Minimal processing overhead
+- Minimal processing overhead
 ```
 ---
 
 ### Deterministic Behavior
 ```
--->Same input → same output
+- Same input → same output
 
--->No randomness in decision logic
+- No randomness in decision logic
 ```
 ---
 
 ### In-Memory Processing
 ```
--->OHLC stored in arrays
+- OHLC stored in arrays
 
--->Faster than DB-based computation
+- Faster than DB-based computation
 ```
 ---
 
 ### Design Decisions
 ```
--->Why WebSocket over REST
+- Why WebSocket over REST
 
--->Real-time data vs delayed polling
+- Real-time data vs delayed polling
 ```
 ---
 
 ### Why Arrays for OHLC
 ```
--->Faster indexing for indicators
+- Faster indexing for indicators
 
--->Lower overhead than object structures
+- Lower overhead than object structures
 ```
 ---
 
 ### Why Time-Bucket Candles
 ```
--->Ensures consistent candle formation
+- Ensures consistent candle formation
 
--->Prevents drift
+- Prevents drift
 ```
 ---
 
 ### Why Event-Driven Model
 ```
--->Eliminates blocking delays
+- Eliminates blocking delays
 
--->Scales better under high-frequency ticks
+- Scales better under high-frequency ticks
 ```
 ---
 
@@ -287,21 +290,21 @@ Tick → Candle → Indicator → Signal → Order
 ```
 ### Optimizations
 ```
--->No DB calls inside tick handler
+- No DB calls inside tick handler
 
--->No heavy logging in real-time loop
+- No heavy logging in real-time loop
 
--->Indicator calculations only on candle close
+- Indicator calculations only on candle close
 ```
 ---
 
 ### Failure Handling (Basic)
 ```
--->Wrap tick processing in try/catch
+- Wrap tick processing in try/catch
 
--->Use PM2 for auto-restart
+- Use PM2 for auto-restart
 
--->Maintain minimal state in memory
+- Maintain minimal state in memory
 ```
 ---
 
