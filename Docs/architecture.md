@@ -12,7 +12,7 @@ The system follows a modular pipeline architecture.
 
 
 ## High-Level Architecture
-
+```
 ┌────────────────────┐
             │   Kite WebSocket   │
             │   (Live Ticks)     │
@@ -62,7 +62,7 @@ The system follows a modular pipeline architecture.
 
 
 
-
+```
 
 
 
@@ -101,13 +101,12 @@ function onTick(price, ts) {
   const bucket = getHourBucket(ts);
   // route to candle builder
 }
-
+```
 Design Goal
 
 Must be extremely fast
 
 No blocking operations
-```
 
 
 ---
