@@ -2,11 +2,11 @@
 
 Real-time trading system built on an event-driven architecture with deterministic decision logic.
 
-Markets evolve constantly.  
+Markets evolve constantly. 
+
 No trading strategy remains profitable forever.
 
-TAlgo is not built around a fixed strategy —  
-it is built around a **permanent adaptive framework**.
+TAlgo is not built around a fixed strategy —  it is built around a **permanent adaptive framework**.
 
 Strategies may fail. The framework survives.
 
@@ -23,13 +23,13 @@ Strategies may fail. The framework survives.
 ---
 
 ## Overview
-```
+
 TAlgo is a rule-based trading engine designed to eliminate emotional decision-making (fear, greed, revenge trading) and replace it with structured, explainable logic.
 
 The system processes live market data, constructs candles, computes indicators, and executes trades in real time.
 ```
 WebSocket → Tick → Candle → Indicators → Strategy → Execution
-```
+
 ```
 ---
 
@@ -49,9 +49,9 @@ WebSocket → Tick → Candle → Indicators → Strategy → Execution
 
 Detailed system documentation:
 ```
-- 📄 [Kite Integration](docs/kite-integration.md)
-- 🧠 [Architecture](docs/architecture.md)
-- 📊 [Strategy](docs/strategy.md)
+-  [Kite Integration](docs/kite-integration.md)
+-  [Architecture](docs/architecture.md)
+-  [Strategy](docs/strategy.md)
 ```
 ---
 
@@ -65,15 +65,15 @@ Detailed system documentation:
 ---
 
 ## Repository Structure
-```
+
 TAlgo/ ├── docs/ │   ├── kite-integration.md │   ├── architecture.md │   └── strategy.md ├── versions/       → Algorithm evolution (v01 → v11) ├── PineScript/     → TradingView prototypes └── README.md
-```
+
 ---
 
 ## Algorithm Evolution
 ```
-The system evolved through structured experimentation.  
-Each version addresses a specific failure observed in real market behavior.
+- The system evolved through structured experimentation.  
+- Each version addresses a specific failure observed in real market behavior.
 ```
 ---
 
@@ -209,7 +209,7 @@ WAIT → PROBATION → CONFIRMED
 ## Strategy Evolution
 
 ```mermaid
-flowchart LR
+
 v1[v01] --> v2[v02]
 v2 --> v3[v03]
 v3 --> v4[v04]
@@ -228,13 +228,13 @@ v10 --> v11[v11]
 
 TAlgo evolves through:
 ```
-Real market observation
+- Real market observation
 
-Iterative improvements
+- Iterative improvements
 
-Behavioral analysis
+- Behavioral analysis
 
-Continuous refinement
+- Continuous refinement
 ```
 
 The goal is not just profitability, but consistent and explainable decision-making.
@@ -244,47 +244,46 @@ The goal is not just profitability, but consistent and explainable decision-maki
 
 ### Research Insights
 
-Market Noise
+## Market Noise
 ```
-Early versions overreacted
+- Early versions overreacted
 
-Solution: smoothing + filtering
-
-```
-Sideways Markets
-```
-Frequent losses
-
-Solution: ALMA bands
-```
-
-Market Transitions
-```
-Major loss source
-
-Solution: staged decision systems
+- Solution: smoothing + filtering
 
 ```
-Overcommitment
+## Sideways Markets
 ```
-Large losses on false breakouts
+- Frequent losses
 
-Solution: gradual scaling
+- Solution: ALMA bands
 ```
 
-Stability
+## Market Transitions
 ```
-Compression caused instability
+- Major loss source
 
-Solution: bandwidth filters
+- Solution: staged decision systems
+
+```
+## Overcommitment
+```
+- Large losses on false breakouts
+
+- Solution: gradual scaling
+```
+
+## Stability
+```
+- Compression caused instability
+
+- Solution: bandwidth filters
 
 ```
 
 ---
 
-System Flow
+## System Flow
 
-flowchart TD
 
 A[Market Data] --> B[Candle Processing]
 B --> C[Indicators]
@@ -296,9 +295,9 @@ F --> G[Logs]
 
 ---
 
-Decision States
+## Decision States
 
-flowchart TD
+
 
 A[WAIT] --> B[PROBATION]
 B --> C[CONFIRMED]
@@ -308,23 +307,23 @@ C --> A
 
 ---
 
-Final Summary
+## Final Summary
 ```
 ALMA → Filter
 EMA  → Bias
 HMA  → Confirmation
 
 Candle → Indicators → Signal → Execution
-
-TAlgo is designed for:
-
-low latency
-
-deterministic execution
-
-real-time responsiveness
 ```
+TAlgo is designed for:
+```
+- low latency
 
+- deterministic execution
+
+- real-time responsiveness
+
+```
 
 ---
 
@@ -333,12 +332,12 @@ Author
 Developed by Jvkrog
 
 Focused on:
+```
+- real-time trading systems
 
-real-time trading systems
+- behavioral market analysis
 
-behavioral market analysis
-
-algorithmic strategy design
-
+- algorithmic strategy design
+```
 
 ---
