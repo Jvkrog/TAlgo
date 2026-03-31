@@ -1,9 +1,9 @@
 
-# Architecture — TAlgo-X
+# Architecture — TAlgo
 
 ## Overview
 
-TAlgo-X is a real-time, event-driven trading system designed to process live market data, construct candles, compute indicators, and execute trades with low latency and deterministic behavior.
+TAlgo is a real-time, event-driven trading system designed to process live market data, construct candles, compute indicators, and execute trades with low latency and deterministic behavior.
 
 The system follows a modular pipeline architecture.
 
@@ -63,12 +63,6 @@ The system follows a modular pipeline architecture.
 
 
 ```
-
-
-
-
-
-
 
 ---
 
@@ -207,120 +201,120 @@ async function placeOrder(symbol, type) {
   });
 }
 ```
-Design Goal
+### Design Goal
 
-Reliable execution
+-->Reliable execution
 
-Minimal delay from signal to order
-
----
-
-System Characteristics
-
-Event-Driven Architecture
-
-No polling
-
-Reacts instantly to incoming data
+-->Minimal delay from signal to order
 
 ---
 
-Low Latency
+### System Characteristics
 
-WebSocket-based data ingestion
+-->Event-Driven Architecture
 
-Minimal processing overhead
+-->No polling
 
----
-
-Deterministic Behavior
-
-Same input → same output
-
-No randomness in decision logic
+-->Reacts instantly to incoming data
 
 ---
 
-In-Memory Processing
+### Low Latency
 
-OHLC stored in arrays
+-->WebSocket-based data ingestion
 
-Faster than DB-based computation
-
----
-
-Design Decisions
-
-Why WebSocket over REST
-
-Real-time data vs delayed polling
+-->Minimal processing overhead
 
 ---
 
-Why Arrays for OHLC
+### Deterministic Behavior
 
-Faster indexing for indicators
+-->Same input → same output
 
-Lower overhead than object structures
-
----
-
-Why Time-Bucket Candles
-
-Ensures consistent candle formation
-
-Prevents drift
+-->No randomness in decision logic
 
 ---
 
-Why Event-Driven Model
+### In-Memory Processing
 
-Eliminates blocking delays
+-->OHLC stored in arrays
 
-Scales better under high-frequency ticks
+-->Faster than DB-based computation
 
 ---
 
-Latency Considerations
+### Design Decisions
+
+-->Why WebSocket over REST
+
+-->Real-time data vs delayed polling
+
+---
+
+### Why Arrays for OHLC
+
+-->Faster indexing for indicators
+
+-->Lower overhead than object structures
+
+---
+
+### Why Time-Bucket Candles
+
+-->Ensures consistent candle formation
+
+-->Prevents drift
+
+---
+
+### Why Event-Driven Model
+
+-->Eliminates blocking delays
+
+-->Scales better under high-frequency ticks
+
+---
+
+### Latency Considerations
 
 Critical path:
 
 Tick → Candle → Indicator → Signal → Order
 
-Optimizations
+### Optimizations
 
-No DB calls inside tick handler
+-->No DB calls inside tick handler
 
-No heavy logging in real-time loop
+-->No heavy logging in real-time loop
 
-Indicator calculations only on candle close
-
----
-
-Failure Handling (Basic)
-
-Wrap tick processing in try/catch
-
-Use PM2 for auto-restart
-
-Maintain minimal state in memory
+-->Indicator calculations only on candle close
 
 ---
 
-Summary
+### Failure Handling (Basic)
+
+-->Wrap tick processing in try/catch
+
+-->Use PM2 for auto-restart
+
+-->Maintain minimal state in memory
+
+---
+
+### Summary
 
 TAlgo is built as a structured real-time system:
-
+```
 WebSocket → Tick → Candle → Indicators → Strategy → Execution
-
+```
 The architecture prioritizes:
-
+```
 speed
 
 stability
 
 deterministic execution
-
+```
 
 This design enables reliable performance under live market conditions.
 
