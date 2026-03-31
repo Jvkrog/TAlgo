@@ -69,7 +69,15 @@ Detailed system documentation:
 
 ## Repository Structure
 ```
-TAlgo/ ├── docs/ │   ├── kite-integration.md │   ├── architecture.md │   └── strategy.md ├── versions/       → Algorithm evolution (v01 → v11) ├── PineScript/     → TradingView prototypes └── README.md
+TAlgo/ ├── docs/ │
+ ├── kite-integration.md │
+ ├── architecture.md │
+ └── strategy.md ├
+ |── versions/
+   → Algorithm evolution (v01 → v11)
+ ├── PineScript/
+   → TradingView prototypes
+ └── README.md
 ```
 ---
 
@@ -155,9 +163,9 @@ TAlgo/ ├── docs/ │   ├── kite-integration.md │   ├── archi
 - Systems require session context
 ```
 ---
-```
-### v07 — Dynamic Commitment
 
+### v07 — Dynamic Commitment
+```
 **Logic**
 - Scale after confirmation
 
