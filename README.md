@@ -69,7 +69,8 @@ Detailed system documentation:
 
 ## Repository Structure
 ```
-TAlgo/ ├── docs/ │
+TAlgo/
+ ├── docs/ 
  ├── kite-integration.md │
  ├── architecture.md │
  └── strategy.md ├
