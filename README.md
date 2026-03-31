@@ -71,9 +71,9 @@ Detailed system documentation:
 ```
 TAlgo/
  ├── docs/ 
- ├── kite-integration.md │
- ├── architecture.md │
- └── strategy.md ├
+ |   ├── kite-integration.md │
+ |   ├── architecture.md │
+ |   └── strategy.md ├
  |── versions/
    → Algorithm evolution (v01 → v11)
  ├── PineScript/
