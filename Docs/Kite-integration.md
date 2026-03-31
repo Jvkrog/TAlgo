@@ -31,8 +31,7 @@ const ticker = new KiteTicker({
 
 
 ---
-
-2. Historical Data (Warmup)
+2.Historical Data (Warmup)
 
 Used to initialize indicator values before live execution.
 
@@ -42,7 +41,6 @@ async function loadHistorical(instrument, from, to) {
 
 
 ---
-
 3. OHLC Data Structure
 
 Candles are stored in arrays for efficient computation.
@@ -57,8 +55,7 @@ const ohlc = {
 
 
 ---
-
-4. WebSocket Connection
+4.WebSocket Connection
 
 Real-time data is received using Kite WebSocket.
 
@@ -74,8 +71,7 @@ ticker.on("ticks", (ticks) => {
 
 
 ---
-
-5. Candle Construction (1 Hour)
+5.Candle Construction (1 Hour)
 
 Ticks are grouped into 1-hour candles using time-bucket logic.
 
@@ -90,7 +86,6 @@ function getHourBucket(ts) {
 
 function onTick(price, ts) {
   const bucket = getHourBucket(ts);
-
   if (!currentCandle) {
     currentBucket = bucket;
     currentCandle = {
@@ -108,7 +103,6 @@ function onTick(price, ts) {
     currentCandle.close = price;
   } else {
     pushCandle(currentCandle);
-
     currentBucket = bucket;
     currentCandle = {
       open: price,
@@ -156,13 +150,10 @@ function WMA(values, period) {
 
   return values.map((_, i) => {
     if (i < period - 1) return null;
-
     let sum = 0, w = 1;
-
     for (let j = i - period + 1; j <= i; j++) {
       sum += values[j] * w++;
     }
-
     return sum / denom;
   });
 }
@@ -190,15 +181,12 @@ function ALMA(values, period = 9, offset = 0.85, sigma = 6) {
 
   return values.map((_, i) => {
     if (i < period - 1) return null;
-
-    let sum = 0, norm = 0;
-
+   let sum = 0, norm = 0;
     for (let j = 0; j < period; j++) {
       const w = Math.exp(-((j - m) ** 2) / (2 * s * s));
       sum += values[i - period + 1 + j] * w;
       norm += w;
     }
-
     return sum / norm;
   });
 }
