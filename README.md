@@ -11,7 +11,10 @@ TAlgo is not built around a fixed strategy —  it is built around a **permanent
 Strategies may fail. The framework survives.
 
 
+
 > Final production logic implemented in v11 — ALMA Fast Color Engine
+
+
 
 ![Version](https://img.shields.io/badge/version-v11-skyblue)
 ![Strategy](https://img.shields.io/badge/strategy-ColorBasedDecision-white)
@@ -209,6 +212,7 @@ WAIT → PROBATION → CONFIRMED
 ## Strategy Evolution
 
 ```mermaid
+flowchart LR
 
 v1[v01] --> v2[v02]
 v2 --> v3[v03]
@@ -220,11 +224,10 @@ v7 --> v8[v08]
 v8 --> v9[v09]
 v9 --> v10[v10]
 v10 --> v11[v11]
-
 ```
 ---
 
-### Development Philosophy
+## Development Philosophy
 
 TAlgo evolves through:
 ```
@@ -283,8 +286,8 @@ The goal is not just profitability, but consistent and explainable decision-maki
 ---
 
 ## System Flow
-
-
+```
+flowchart LR
 A[Market Data] --> B[Candle Processing]
 B --> C[Indicators]
 C --> D[Decision Engine]
@@ -292,18 +295,18 @@ D --> E[State Machine]
 E --> F[Execution]
 F --> G[Logs]
 
-
+```
 ---
 
 ## Decision States
 
-
+```
 
 A[WAIT] --> B[PROBATION]
 B --> C[CONFIRMED]
 B --> A
 C --> A
-
+```
 
 ---
 
