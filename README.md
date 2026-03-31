@@ -76,9 +76,11 @@ TAlgo/
  |   └── strategy.md ├
  |
  |── versions/
+ |
  |     → Algorithm evolution (v01 → v11)
  |
  ├── PineScript/
+ |
  |     → TradingView prototypes
  |
  └── README.md
